@@ -1,0 +1,28 @@
+rule rule_multiple_connections_ru_cti {
+  meta:
+    author = "foo"
+    description = "bar"
+    severity = "Medium"
+
+  events:
+    //Implied logical AND between lines back to object "e"
+    $e.metadata.event_type = "NETWORK_HTTP"
+    $e.target.ip_geo_artifact.location.country_or_region = "Russia"
+    $e.target.hostname = $hostname
+    //match against known the MISP threat intel sources for domains
+    $ioc.graph.metadata.product_name = "MISP"
+    $ioc.graph.metadata.entity_type = "DOMAIN_NAME"
+    $ioc.graph.metadata.source_type = "ENTITY_CONTEXT"
+    //setup the variable to correlate the target.hostname event
+    $ioc.graph.entity.hostname = $hostname
+
+  match:
+    $hostname over 15m
+
+  outcome:
+    $risk_score = 10
+    $event_count = count_distinct($hostname)
+
+  condition:
+    ($ioc and $e) and $event_count >=2
+}

@@ -1,0 +1,1495 @@
+{
+    "type": "bundle",
+    "id": "bundle--f9b22cba-1290-4df1-8475-be3d35fba6bf",
+    "objects": [
+        {
+            "id": "location--117715eb-05fd-4712-b890-b2a66191d89d",
+            "spec_version": "2.1",
+            "type": "location",
+            "country": "US",
+            "administrative_area": "US-DC",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+            "created": "2023-03-02T16:48:57.959Z",
+            "extensions": {
+                "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
+                    "extension_type": "property-extension",
+                    "identifier": "isa:guide.19001.ACS3-9e0cd50e-6efc-45b3-8a3d-b6376541c9c5",
+                    "create_date_time": "2023-03-02T16:48:57.959Z",
+                    "responsible_entity_custodian": "USA.DHS.NCCIC",
+                    "responsible_entity_originator": "USA.DHS.NCCIC",
+                    "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=permit",
+                    "control_set": {
+                        "classification": "U",
+                        "formal_determination": [
+                            "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT",
+                            "PUBREL"
+                        ]
+                    },
+                    "authority_reference": [
+                        "urn:isa:authority:ais"
+                    ],
+                    "access_privilege": [
+                        {
+                            "privilege_action": "CISAUSES",
+                            "rule_effect": "permit",
+                            "privilege_scope": {
+                                "entity": [
+                                    "ALL"
+                                ],
+                                "permitted_nationalities": [
+                                    "ALL"
+                                ],
+                                "permitted_organizations": [
+                                    "ALL"
+                                ],
+                                "shareability": [
+                                    "ALL"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "attack-pattern--20a4aaa2-d151-4834-baf6-b84ac965c60e",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Gather Victim Host Information: Software",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1592.002",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1592/002"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--8899a74a-c3b0-43de-9815-f7fb35a3fb1d",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Gather Victim Network Information",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1590",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1590"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--64526fee-c918-407c-8fd6-ecc84bfa3c45",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Gather Victim Network Information: Network Topology",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1590.004",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1590/004"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--58f09302-0633-44c8-89ef-709c027b0872",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Exploit Public-Facing Application",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1190",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1190"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--948897c8-7e82-4a7a-931d-49391288758e",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Command and Scripting Interpreter: PowerShell",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1059.001",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1059/001"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--30edf792-2f80-47c5-b28d-4edfdcc06e1c",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Command and Scripting Interpreter: Windows Command Shell",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1059.003",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1059/003"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--88898e1e-0b0e-4f9a-bf10-1bcd26adc812",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Exploitation for Client Execution",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1203",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1203"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--a948d67d-60fa-4d0a-9c73-d00735f88c71",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Windows Management Instrumentation",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1047",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1047"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--d50f84b2-ae28-4505-822f-f38665c9cb73",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Account Manipulation",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1098",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1098"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--60b6d54f-cc36-425f-9a46-602d8b3d8b0e",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Boot or Logon Autostart Execution",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1547",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1547"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--497eeacc-e0d5-4049-969c-3845c6fd6f41",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Hijack Execution Flow: DLL Side-Loading",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1574.002",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1574/002"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--1e96b8f1-8cfa-4c37-88e9-01b8a8885675",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Scheduled Task/Job: Scheduled Task",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1053.005",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1053/005"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--4644d404-5cc7-481a-b106-dfc0bc9a1d84",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Server Software Component: SQL Stored Procedures",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1505.001",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1505/001"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--86e64c92-0e34-4b0e-87f4-dbb7a821e117",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Exploitation for Privilege Escalation",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1068",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1068"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--08b41c4c-5510-4eed-ae39-00bd697fec3a",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Hide Artifacts",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1564",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1564"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--8e92cf9d-3b68-4c61-a546-f1457d14fcf9",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Hide Artifacts: Hidden Files and Directories",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1564.001",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1564/001"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--8bcc3123-6f8e-49e7-8d8f-07352ac670c0",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Impair Defenses: Disable or Modify Tools",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1562.001",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1562/001"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--6438df07-1716-4ce6-8f23-7ba0d179838e",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Masquerading",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1036",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1036"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--134cd632-79ab-465c-a542-05f205383671",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Obfuscated Files or Information: Binary Padding",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1027.001",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1027/001"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--c7d08b48-81fd-429d-ac8b-84e2331c13a9",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Process Injection",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1055",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1055"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--72b68215-9702-4b8a-b5db-f2684a72af1b",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Credentials from Password Stores: Credentials from Web Browsers",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1555.003",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1555/003"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--3bf82e40-db99-4ef5-ad69-e2d70312063a",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "OS Credential Dumping",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1003",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1003"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--dea6c9be-7afa-4b2d-ba40-d08fcd3eeb3f",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "OS Credential Dumping: LSASS Memory",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1003.001",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1003/001"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--a0fa73d4-662e-41a8-ad5c-a85ba8f31416",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "OS Credential Dumping: Security Account Manager",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1003.002",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1003/002"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--df86db23-7d29-47e7-9083-ca9d9ff91733",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Steal or Forge Kerberos Tickets: Golden Ticket",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1558.001",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1558/001"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--3bc74d16-2aae-4860-aa8c-36c433c274b6",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Network Service Discovery",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1046",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1046"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--1edee9d7-f655-4ed8-a25d-f1b7d4bd8237",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Process Discovery",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1057",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1057"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--5e46f358-2e32-4f0d-94e7-53b024c7ceef",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "System Network Connections Discovery",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1049",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1049"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--c4107741-d3e4-4aa5-8821-f8e86db7ac9a",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "System Owner/User Discovery",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1033",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1033"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--82061776-2100-4c26-bca8-0e261d81f305",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Exploitation of Remote Services",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1210",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1210"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--5c671c95-c8cb-4984-a741-95ed2d15cd6e",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Dynamic Resolution",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1568",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1568"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--6851bde7-1e96-4538-8125-f9a07a80cf76",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Protocol Tunneling",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1572",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1572"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--06795629-64d1-49da-bf23-7cb9aab8e92d",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Automated Exfiltration",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1020",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1020"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--edab5718-4312-44b0-9275-53a3c5e9c586",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Exfiltration Over C2 Channel",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1041",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1041"
+                }
+            ]
+        },
+        {
+            "id": "attack-pattern--2f5d0019-8be9-4a92-92ff-07cb272f0511",
+            "type": "attack-pattern",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "spec_version": "2.1",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "name": "Exfiltration Over Web Service",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "external_references": [
+                {
+                    "external_id": "T1567",
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1567"
+                }
+            ]
+        },
+        {
+            "id": "indicator--ab410129-6960-472e-b80c-c1762886cce9",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "FQDN Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[domain-name:value = 'matclick.com']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--e01b9d47-b8a7-4e05-886d-1b03f753bc8b",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "Url Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[url:value = 'https://MATCLICK.COM/WP-QUERY.PHP']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--e1bae570-472c-4587-8e21-4ee5c5efde93",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "IPv4 Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[ipv4-addr:value = '103.76.128.34']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--d034fc3d-250e-45fd-b97c-44e9742c708b",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "IPv4 Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[ipv4-addr:value = '65.21.51.58']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--d665d33b-abbf-4112-8403-df581bb93e21",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "IPv4 Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[ipv4-addr:value = '65.20.97.203']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--d1d57ded-2bdc-476a-a5da-82716fdd8c89",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '950ADBAF66AB214DE837E6F1C00921C501746616A882EA8C42F1BAD5F9B6EFF4']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--6de08442-12a0-49f8-8552-d96e219a57cf",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.MD5 = '5A782BC5F0D63540B666F6A07E116D81' AND file:hashes.'SHA-1' = '281BB0DADC789B89F7AE30D5F4BDEAE57C66B0E1' AND file:hashes.'SHA-256' = '4EE70128C70D646C5C2A9A17AD05949CB1FBF1043E9D671998812B2DCE75CF0F']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--8a22ecf3-41ab-471a-a5ea-a19e9a83749f",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'D724728344FCF3812A0664A80270F7B4980B82342449A8C5A2FA510E10600443']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--a7c49703-c72e-49b4-a8be-c8524619a1d6",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'F6194121E1540C3553273709127DFA1DAAB96B0ACFAB6E92548BFB4059913C69']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--d3cd314a-8dfd-4ce1-a287-691d5691eed2",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'C832462C15C8041191F190F7A88D25089D57F78E97161C3003D68D0CC2C4BAA3']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--2adaa062-9526-4d5d-89f0-86aac3765bcd",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'C40A8006A7B1F10B1B42FDD8D6D0F434BE503FB3400FB948AC9AB8DDFA5B78A0']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--946a9db1-4b01-44ce-a085-86094d593b2c",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'C37C109171F32456BBE57B8676CC533091E387E6BA733FBAA01175C43CFB6EBD']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--736433da-904f-4262-b52f-6f030f950722",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'B53E27C79EED8531B1E05827ACE2362603FB9F77F53CEE2E34940D570217CBF7']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--faa87363-e122-4fcc-8137-b8b96f346f8a",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '92C7693E82A90D08249EDEAFBCA6533FED81B62E9E056DEC34C24756E0A130A6']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--b75c3004-cf49-4cba-a35e-1d06742c313e",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '219FB90D2E88A2197A9E08B0E7811E2E0BD23D59233287587CCC4642C2CF3D67']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--8d34a046-03cc-4509-8b0a-e13d9d2efd85",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '1E74CF0223D57FD846E171F4A58790280D4593DF1F23132044076560A5455FF8']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--63a22735-fc29-4a4b-9315-3a2944b4f0de",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '19F1EF66E449CF2A2B0283DBB756850CCA396114286E1485E35E6C672C9C3641']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--2703eced-b006-49a6-99d5-955bca533208",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '18101518EAE3EEC6EBE453DE4C4C380160774D7C3ED5C79E1813013AC1BB0B93']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--5413d0c2-a4e1-4bb7-a899-303501309cc3",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '4BF1915785D7C6E0987EB9C15857F7AC67DC365177A1707B14822131D43A6166']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--c4ce9c29-7b5a-4cd1-b5e9-f4253ab4e258",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'C7B01242D2E15C3DA0F45B8ADEC4E6913E534849CDE16A2A6C480045E03FBEE4']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--86bbe4de-31d1-4e1e-af7a-0381011ef42e",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'F1B40E6E5A7CBC22F7A0BD34607B13E7E3493B8AAD7431C47F1366F0256E23EB']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--3aeff822-8429-4a41-bda4-d4d5d42e8a5e",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'EBE231C90FAD02590FC56D5840ACC63B90312B0E2FEE7DA3C7606027ED92600E']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--47e5d0e8-e9b9-464b-804f-de5fba4c28fb",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = 'CD3584D61C2724F927553770924149BB51811742A461146B15B34A26C92CAD43']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--866b5dc0-e320-4658-8ff3-b8596fe32540",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '971F0CED6C42DD2B6E3EA3E6C54D0081CF9B06E79A38C2EDE3A2C5228C27A6DC']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--1b0f9af7-f6f4-41d6-8276-817bbf33a62d",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.MD5 = '347B4F985414CA9F78BBBBFF002E3EC6' AND file:hashes.'SHA-1' = 'A4B03F1E981CCDD7E08E786C72283D5551671EDF' AND file:hashes.'SHA-256' = '8AFB71B7CE511B0BCE642F46D6FC5DD79FAD86A58223061B684313966EFEF9C7']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--1186b1e2-7e6f-47bf-a2b7-ebc0c6aad514",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '7B666B978DBBE7C032CEF19A90993E8E4922B743EE839632BFA6D99314EA6C53']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--27d9ed0e-1e4d-4e22-956c-2efb5bce942b",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.MD5 = '98A082E95628B51307343581CFB7EAC7' AND file:hashes.'SHA-1' = 'D4411F70E0DCC2F88D74AE7251D51C6676075F6F' AND file:hashes.'SHA-256' = '620D2BF14FE345EEF618FDD1DAC242B3A0BB65CCB75699FE00F7C671F2C1D869']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--496efb7c-5fc4-4589-85ca-2d47f13368d8",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '34C8F155601A3948DDB0D60B582CFE87DE970D443CC0E05DF48B1A1AD2E42B5E']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--c14cbe86-e75c-437d-b4bf-6df26a9aca7d",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.'SHA-256' = '01B5F7094DE0B2C6F8E28AA9A2DED678C166D615530E595621E692A9C0240732']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--afdab2c9-e789-42e8-b8a3-15802a57ea98",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.MD5 = '69538D033AE3309F0652AE815506FCEC' AND file:hashes.'SHA-1' = '2DF317B8A408D2AD5C94B9DE6F20BBEF03E46066' AND file:hashes.'SHA-256' = '773F0102720AF2957859D6930CD09693824D87DB705B3303CEF9EE794375CE13']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--ce2d1875-4fa7-4d39-9b84-bcbc7488485c",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[file:hashes.MD5 = '2D8E4F38B36C334D0A32A7324832501D' AND file:hashes.'SHA-1' = 'F6F11AD2CD2B0CF95ED42324876BEE1D83E01775' AND file:hashes.'SHA-256' = '01AA278B07B58DC46C84BD0B1B5C8E9EE4E62EA0BF7A695862444AF32E87F1FD']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--589d6dbe-051d-47c2-bd53-36dbcf776224",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[(file:name = 'payload.bin') AND file:hashes.MD5 = '46125424B4982C6AE17AF821DEDB9BFB' AND file:hashes.'SHA-1' = '18192BB4AAA1B72104BE4D26460B55F31CA65BAF' AND file:hashes.'SHA-256' = 'CB83E5CB264161C28DE76A44D0EDB450745E773D24BEC5869D85F69633E44DCF']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "id": "indicator--e9a89de7-109f-462a-a2a5-18139ac06b5e",
+            "type": "indicator",
+            "spec_version": "2.1",
+            "pattern_type": "stix",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "name": "File Indicator",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "valid_from": "2016-12-01T00:00:00Z",
+            "pattern": "[(file:name = '0296e2ce999e67c76352613a718e11516fe1b0efc3ffdb8918fc999dd76a73a5.bin') AND file:hashes.MD5 = 'C996D7971C49252C582171D9380360F2' AND file:hashes.'SHA-1' = 'C948AE14761095E4D76B55D9DE86412258BE7AFD' AND file:hashes.'SHA-256' = '0296E2CE999E67C76352613A718E11516FE1B0EFC3FFDB8918FC999DD76A73A5']",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f6d19b6c-be82-4b65-b9b8-7d6d4ac761c7",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "source_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "relationship_type": "located-at",
+            "target_ref": "location--117715eb-05fd-4712-b890-b2a66191d89d",
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "report--62e17cb7-ff23-48f1-b00d-227ff9248e83",
+            "type": "report",
+            "spec_version": "2.1",
+            "created": "2023-12-13T16:22:02.000Z",
+            "modified": "2023-12-13T16:22:02.000Z",
+            "name": "AA23-347A Russian Foreign Intelligence Service (SVR) Exploiting JetBrains TeamCity CVE Globally",
+            "description": "The Federal Bureau of Investigation (FBI), US Cybersecurity & Infrastructure Security Agency (CISA), National Security Agency (NSA), Polish Military Counterintelligence Service (SKW), CERT Polska (CERT.PL), and the UK's National Cyber Security Centre (NCSC) assess Russian Foreign Intelligence Service (SVR) cyber actors\\u2014also known as Advanced Persistent Threat 29 (APT 29), the Dukes, CozyBear, and NOBELIUM/Midnight Blizzard\\u2014are exploiting CVE-2023-42793 at a large scale, targeting servers hosting JetBrains TeamCity software since September 2023.\r\n\r\nSoftware developers use TeamCity software to manage and automate software compilation, building, testing, and releasing. If compromised, access to a TeamCity server would provide malicious actors with access to that software developer's source code, signing certificates, and the ability to subvert software compilation and deployment processes\\u2014access a malicious actor could further use to conduct supply chain operations. Although the SVR executed such an operation against SolarWinds and its customers in 2020, the authoring agencies are currently unaware of any attempts by the SVR to use the access afforded by the TeamCity CVE in a similar manner. The SVR has, however, been observed using the initial access gleaned by exploiting the TeamCity CVE to escalate its privileges, move laterally, deploy additional backdoors, and take other steps to ensure persistent and long-term access to the compromised network environments.\r\n\r\nThis CSA details the tactics, techniques, and procedures (TTPs) employed by SVR actors in this operation, the operation's focus on software companies, technical details of the operation, indicators of compromise (IOCs), and mitigation recommendations for network defenders. The information is derived from collaborative ongoing mitigation efforts by the authoring agencies of this CSA.",
+            "published": "2023-12-13T00:00:00Z",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "object_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "attack-pattern--20a4aaa2-d151-4834-baf6-b84ac965c60e",
+                "attack-pattern--8899a74a-c3b0-43de-9815-f7fb35a3fb1d",
+                "attack-pattern--64526fee-c918-407c-8fd6-ecc84bfa3c45",
+                "attack-pattern--58f09302-0633-44c8-89ef-709c027b0872",
+                "attack-pattern--948897c8-7e82-4a7a-931d-49391288758e",
+                "attack-pattern--30edf792-2f80-47c5-b28d-4edfdcc06e1c",
+                "attack-pattern--88898e1e-0b0e-4f9a-bf10-1bcd26adc812",
+                "attack-pattern--a948d67d-60fa-4d0a-9c73-d00735f88c71",
+                "attack-pattern--d50f84b2-ae28-4505-822f-f38665c9cb73",
+                "attack-pattern--60b6d54f-cc36-425f-9a46-602d8b3d8b0e",
+                "attack-pattern--497eeacc-e0d5-4049-969c-3845c6fd6f41",
+                "attack-pattern--1e96b8f1-8cfa-4c37-88e9-01b8a8885675",
+                "attack-pattern--4644d404-5cc7-481a-b106-dfc0bc9a1d84",
+                "attack-pattern--86e64c92-0e34-4b0e-87f4-dbb7a821e117",
+                "attack-pattern--08b41c4c-5510-4eed-ae39-00bd697fec3a",
+                "attack-pattern--8e92cf9d-3b68-4c61-a546-f1457d14fcf9",
+                "attack-pattern--8bcc3123-6f8e-49e7-8d8f-07352ac670c0",
+                "attack-pattern--6438df07-1716-4ce6-8f23-7ba0d179838e",
+                "attack-pattern--134cd632-79ab-465c-a542-05f205383671",
+                "attack-pattern--c7d08b48-81fd-429d-ac8b-84e2331c13a9",
+                "attack-pattern--72b68215-9702-4b8a-b5db-f2684a72af1b",
+                "attack-pattern--3bf82e40-db99-4ef5-ad69-e2d70312063a",
+                "attack-pattern--dea6c9be-7afa-4b2d-ba40-d08fcd3eeb3f",
+                "attack-pattern--a0fa73d4-662e-41a8-ad5c-a85ba8f31416",
+                "attack-pattern--df86db23-7d29-47e7-9083-ca9d9ff91733",
+                "attack-pattern--3bc74d16-2aae-4860-aa8c-36c433c274b6",
+                "attack-pattern--1edee9d7-f655-4ed8-a25d-f1b7d4bd8237",
+                "attack-pattern--5e46f358-2e32-4f0d-94e7-53b024c7ceef",
+                "attack-pattern--c4107741-d3e4-4aa5-8821-f8e86db7ac9a",
+                "attack-pattern--82061776-2100-4c26-bca8-0e261d81f305",
+                "attack-pattern--5c671c95-c8cb-4984-a741-95ed2d15cd6e",
+                "attack-pattern--6851bde7-1e96-4538-8125-f9a07a80cf76",
+                "attack-pattern--06795629-64d1-49da-bf23-7cb9aab8e92d",
+                "attack-pattern--edab5718-4312-44b0-9275-53a3c5e9c586",
+                "attack-pattern--2f5d0019-8be9-4a92-92ff-07cb272f0511",
+                "indicator--ab410129-6960-472e-b80c-c1762886cce9",
+                "indicator--e01b9d47-b8a7-4e05-886d-1b03f753bc8b",
+                "indicator--e1bae570-472c-4587-8e21-4ee5c5efde93",
+                "indicator--d034fc3d-250e-45fd-b97c-44e9742c708b",
+                "indicator--d665d33b-abbf-4112-8403-df581bb93e21",
+                "indicator--d1d57ded-2bdc-476a-a5da-82716fdd8c89",
+                "indicator--6de08442-12a0-49f8-8552-d96e219a57cf",
+                "indicator--8a22ecf3-41ab-471a-a5ea-a19e9a83749f",
+                "indicator--a7c49703-c72e-49b4-a8be-c8524619a1d6",
+                "indicator--d3cd314a-8dfd-4ce1-a287-691d5691eed2",
+                "indicator--2adaa062-9526-4d5d-89f0-86aac3765bcd",
+                "indicator--946a9db1-4b01-44ce-a085-86094d593b2c",
+                "indicator--736433da-904f-4262-b52f-6f030f950722",
+                "indicator--faa87363-e122-4fcc-8137-b8b96f346f8a",
+                "indicator--b75c3004-cf49-4cba-a35e-1d06742c313e",
+                "indicator--8d34a046-03cc-4509-8b0a-e13d9d2efd85",
+                "indicator--63a22735-fc29-4a4b-9315-3a2944b4f0de",
+                "indicator--2703eced-b006-49a6-99d5-955bca533208",
+                "indicator--5413d0c2-a4e1-4bb7-a899-303501309cc3",
+                "indicator--c4ce9c29-7b5a-4cd1-b5e9-f4253ab4e258",
+                "indicator--86bbe4de-31d1-4e1e-af7a-0381011ef42e",
+                "indicator--3aeff822-8429-4a41-bda4-d4d5d42e8a5e",
+                "indicator--47e5d0e8-e9b9-464b-804f-de5fba4c28fb",
+                "indicator--866b5dc0-e320-4658-8ff3-b8596fe32540",
+                "indicator--1b0f9af7-f6f4-41d6-8276-817bbf33a62d",
+                "indicator--1186b1e2-7e6f-47bf-a2b7-ebc0c6aad514",
+                "indicator--27d9ed0e-1e4d-4e22-956c-2efb5bce942b",
+                "indicator--496efb7c-5fc4-4589-85ca-2d47f13368d8",
+                "indicator--c14cbe86-e75c-437d-b4bf-6df26a9aca7d",
+                "indicator--afdab2c9-e789-42e8-b8a3-15802a57ea98",
+                "indicator--ce2d1875-4fa7-4d39-9b84-bcbc7488485c",
+                "indicator--589d6dbe-051d-47c2-bd53-36dbcf776224",
+                "indicator--e9a89de7-109f-462a-a2a5-18139ac06b5e",
+                "relationship--f6d19b6c-be82-4b65-b9b8-7d6d4ac761c7"
+            ],
+            "object_marking_refs": [
+                "marking-definition--479081c8-3a60-4eb8-b410-96a30f395def",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        }
+    ]
+}

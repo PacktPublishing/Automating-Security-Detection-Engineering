@@ -1,0 +1,37 @@
+rule ag_ioc_sha256_hash_vt_basic {  
+  
+  meta:
+    author = "Google Cloud Security"
+    description = "Used for the Alert Graph Workshop. Detect file/process events with watchlisted hashes from MISP that VT flagged as MS Office docx file types"
+    type = "alert"
+    tags = "threat indicators, vt enrichment"
+    assumption = "Assumes MISP data has been ingested into entity graph; this rule can be modified to utilize other TI indicators"
+    data_source = "microsoft sysmon"
+    severity = "Medium"
+    priority = "Medium"
+  
+  events:
+    $process.metadata.event_type = "PROCESS_LAUNCH" or $process.metadata.event_type ="FILE_CREATION"
+    $process.principal.hostname = $hostname
+    $process.target.process.file.sha256 != ""
+    $process.target.process.file.sha256 = $sha256
+    
+    // Enriched field from VirusTotal integration, can be commented out or modified if not using
+    $process.target.process.file.file_type = "FILE_TYPE_DOCX"
+    
+    // Correlates with MISP data; can be modified based on your MISP parser or other TI
+    $ioc.graph.metadata.product_name = "MISP"
+    $ioc.graph.metadata.entity_type = "FILE"
+    $ioc.graph.metadata.source_type = "ENTITY_CONTEXT"
+    $ioc.graph.entity.file.sha256 = $sha256
+  
+  match:
+    $hostname over 30m
+  
+  outcome:
+    $risk_score = max(65)
+    $event_count = count_distinct($process.metadata.id)
+  
+  condition:
+    $process and $ioc
+}
