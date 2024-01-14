@@ -1,0 +1,44 @@
+# Ref: https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/
+# Ref2: https://github.com/aws-actions/configure-aws-credentials
+# Ref3" https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
+
+# Use OIDC connection to AWS account and assume role
+name: Connect to an AWS role from a GitHub repository
+
+# Controls when the action will run. Invokes the workflow on push events but only for the main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  
+  AWS_REGION : "us-east-2" #Change to reflect your Region
+
+# Permission can be added at job level or workflow level    
+permissions:
+      id-token: write   # This is required for requesting the JWT
+      contents: read    # This is required for actions/checkout
+jobs:
+  InstallPythonAssumeIAMRole:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v3
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1.7.0
+        with:
+          role-to-assume: arn:aws:iam::<REPLACE-YOUR-AWS-ACCOUNT>:role/GithubOIDC-Actions-Role-<REPLACE> #change to reflect your IAM role’s ARN
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Deploy Clud Custodian Policy
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+      - run: pip install c7n
+      - name: Validate Cloud Custodian Policy
+        run: |
+          custodian validate ./sample-policy.yml
+          run: |
+            custodian run --region us-east-2 --verbose ./sample-policy.yml -s ./out-log/  

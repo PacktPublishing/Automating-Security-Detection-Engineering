@@ -1,0 +1,89 @@
+{
+    "comment": "test falconpy custom ioa",
+    "description": "example custom ioa detection use case",
+    "disposition_id": 10,
+      "field_values": [
+        {
+          "name": "GrandparentImageFilename",
+          "value": ".*",
+          "label": "Grandparent Image Filename",
+          "type": "excludable",
+          "values": [
+            {
+              "label": "include",
+              "value": ".*"
+            }
+          ],
+          "final_value": ".*"
+        },
+        {
+          "name": "GrandparentCommandLine",
+          "value": ".*",
+          "label": "Grandparent Command Line",
+          "type": "excludable",
+          "values": [
+            {
+              "label": "include",
+              "value": ".*"
+            }
+          ],
+          "final_value": ".*"
+        },
+        {
+          "name": "ParentImageFilename",
+          "value": ".*",
+          "label": "Parent Image Filename",
+          "type": "excludable",
+          "values": [
+            {
+              "label": "include",
+              "value": ".*"
+            }
+          ],
+          "final_value": ".*"
+        },
+        {
+          "name": "ParentCommandLine",
+          "value": ".*",
+          "label": "Parent Command Line",
+          "type": "excludable",
+          "values": [
+            {
+              "label": "include",
+              "value": ".*"
+            }
+          ],
+          "final_value": ".*"
+        },
+        {
+          "name": "ImageFilename",
+          "value": ".*",
+          "label": "Image Filename",
+          "type": "excludable",
+          "values": [
+            {
+              "label": "include",
+              "value": ".*"
+            }
+          ],
+          "final_value": ".*"
+        },
+        {
+          "name": "CommandLine",
+          "value": "(?i)(vssadmin|vssadmin\\.exe)\\S{1,10}resize shadowstorage /for=C: /On=C: /Maxsize=1MB",
+          "label": "Command Line",
+          "type": "excludable",
+          "values": [
+            {
+              "label": "include",
+              "value": "(vssadmin|vssadmin\\.exe)\\S{1,10}resize shadowstorage /for=C: /On=C: /Maxsize=1MB"
+            }
+          ],
+          "final_value": "(?i)(vssadmin|vssadmin\\.exe)\\S{1,10}resize shadowstorage /for=C: /On=C: /Maxsize=1MB"
+        }
+      ],
+    "name": "test-rule-ioa-runner",
+    "pattern_severity": "informational",
+    "rulegroup_id": "<PULLED FROM YOUR TENANT SPECIFIC UID USE get-ioa-cs.py>",
+    "ruletype_id": "1"
+  }

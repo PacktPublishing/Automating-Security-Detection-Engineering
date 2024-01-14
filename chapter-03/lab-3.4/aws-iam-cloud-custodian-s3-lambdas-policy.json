@@ -1,0 +1,32 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1703559105132",
+            "Action": [
+                "s3:DeleteBucketPolicy",
+                "s3:GetBucketAcl",
+                "s3:GetBucketPolicy",
+                "s3:GetBucketPolicyStatus",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetDataAccess",
+                "s3:GetEncryptionConfiguration",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:ListAccessGrants",
+                "s3:ListAccessGrantsInstances",
+                "s3:ListAccessGrantsLocations",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket",
+                "s3:PutAccessGrantsInstanceResourcePolicy",
+                "s3:PutAccessPointPolicy",
+                "s3:PutAccessPointPublicAccessBlock",
+                "s3:PutAccountPublicAccessBlock",
+                "s3:PutBucketAcl",
+                "s3:PutBucketPolicy"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}

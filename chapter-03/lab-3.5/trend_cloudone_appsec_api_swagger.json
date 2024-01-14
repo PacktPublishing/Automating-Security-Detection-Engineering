@@ -1,0 +1,1669 @@
+{
+  "components": {
+    "responses": {
+      "UNPROCESSABLE_ENTITY": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "description": "Unprocessable Entity"
+      }
+    },
+    "schemas": {
+      "CommandRule": {
+        "properties": {
+          "action": {
+            "enum": [
+              "block",
+              "allow"
+            ],
+            "type": "string"
+          },
+          "command": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "command"
+        ],
+        "type": "object"
+      },
+      "CommandRuleList": {
+        "properties": {
+          "rules": {
+            "items": {
+              "$ref": "#/components/schemas/CommandRule"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "rules"
+        ],
+        "type": "object"
+      },
+      "CommandRulesAlgoSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/CommandRuleList"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "EmptyObject": {
+        "properties": {},
+        "type": "object"
+      },
+      "Error": {
+        "properties": {
+          "code": {
+            "description": "Error code",
+            "type": "integer"
+          },
+          "errors": {
+            "description": "Errors",
+            "type": "object"
+          },
+          "message": {
+            "description": "Error message",
+            "type": "string"
+          },
+          "status": {
+            "description": "Error name",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "FileAccessGlobRule": {
+        "properties": {
+          "action": {
+            "enum": [
+              "block",
+              "allow"
+            ],
+            "type": "string"
+          },
+          "glob": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "glob"
+        ],
+        "type": "object"
+      },
+      "FileAccessGlobRuleAlgoSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/FileAccessGlobRuleList"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "FileAccessGlobRuleList": {
+        "properties": {
+          "rules": {
+            "items": {
+              "$ref": "#/components/schemas/FileAccessGlobRule"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "rules"
+        ],
+        "type": "object"
+      },
+      "FileAccessPolicy": {
+        "properties": {
+          "read_control": {
+            "$ref": "#/components/schemas/FileAccessGlobRuleAlgoSettings"
+          },
+          "write_control": {
+            "$ref": "#/components/schemas/FileAccessGlobRuleAlgoSettings"
+          }
+        },
+        "type": "object"
+      },
+      "Group": {
+        "properties": {
+          "account_id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "activated_on": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "created_on": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "credentials": {
+            "$ref": "#/components/schemas/GroupCredentials"
+          },
+          "group_id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "name": {
+            "type": "string"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/GroupSettings"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "inactive"
+            ],
+            "type": "string"
+          },
+          "updated_on": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "account_id",
+          "activated_on",
+          "created_on",
+          "credentials",
+          "group_id",
+          "metadata",
+          "name",
+          "settings",
+          "status",
+          "updated_on"
+        ],
+        "type": "object"
+      },
+      "GroupCreation": {
+        "properties": {
+          "name": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "GroupCredentials": {
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "secret": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "secret"
+        ],
+        "type": "object"
+      },
+      "GroupListItem": {
+        "properties": {
+          "account_id": {
+            "type": "string"
+          },
+          "activated_on": {
+            "type": "string"
+          },
+          "group_id": {
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "name": {
+            "type": "string"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/GroupSettings"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "inactive"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "account_id",
+          "activated_on",
+          "group_id",
+          "metadata",
+          "name",
+          "settings",
+          "status"
+        ],
+        "type": "object"
+      },
+      "GroupSettings": {
+        "properties": {
+          "credential_stuffing": {
+            "enum": [
+              "disable",
+              "report",
+              "mitigate"
+            ],
+            "type": "string"
+          },
+          "file_access": {
+            "enum": [
+              "disable",
+              "report",
+              "mitigate",
+              "learn"
+            ],
+            "type": "string"
+          },
+          "ip_protection": {
+            "enum": [
+              "disable",
+              "report",
+              "mitigate"
+            ],
+            "type": "string"
+          },
+          "malicious_file_upload": {
+            "enum": [
+              "disable",
+              "report",
+              "mitigate"
+            ],
+            "type": "string"
+          },
+          "malicious_payload": {
+            "enum": [
+              "disable",
+              "report",
+              "mitigate"
+            ],
+            "type": "string"
+          },
+          "rce": {
+            "enum": [
+              "disable",
+              "report",
+              "mitigate",
+              "learn"
+            ],
+            "type": "string"
+          },
+          "redirect": {
+            "enum": [
+              "disable",
+              "report",
+              "mitigate"
+            ],
+            "type": "string"
+          },
+          "sqli": {
+            "enum": [
+              "disable",
+              "report",
+              "mitigate"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "IpFeed": {
+        "properties": {
+          "action": {
+            "enum": [
+              "block",
+              "captcha"
+            ],
+            "type": "string"
+          },
+          "feed": {
+            "enum": [
+              "tor-exit-nodes"
+            ],
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "feed",
+          "status"
+        ],
+        "type": "object"
+      },
+      "IpFilterRule": {
+        "properties": {
+          "action": {
+            "enum": [
+              "block",
+              "captcha"
+            ],
+            "type": "string"
+          },
+          "active_period": {
+            "$ref": "#/components/schemas/TimeRange"
+          },
+          "match": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "match"
+        ],
+        "type": "object"
+      },
+      "IpProtectionPolicy": {
+        "properties": {
+          "ip_feeds": {
+            "$ref": "#/components/schemas/IpProtectionPolicyIpFeedsSettings"
+          },
+          "ip_filter": {
+            "$ref": "#/components/schemas/IpProtectionPolicyIpFilterSettings"
+          },
+          "trusted_subnets": {
+            "$ref": "#/components/schemas/IpProtectionPolicyTrustedSubnetsSettings"
+          }
+        },
+        "type": "object"
+      },
+      "IpProtectionPolicyIpFeedsConfiguration": {
+        "properties": {
+          "feeds": {
+            "items": {
+              "$ref": "#/components/schemas/IpFeed"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "feeds"
+        ],
+        "type": "object"
+      },
+      "IpProtectionPolicyIpFeedsSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/IpProtectionPolicyIpFeedsConfiguration"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "IpProtectionPolicyIpFilterConfiguration": {
+        "properties": {
+          "rules": {
+            "items": {
+              "$ref": "#/components/schemas/IpFilterRule"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "rules"
+        ],
+        "type": "object"
+      },
+      "IpProtectionPolicyIpFilterSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/IpProtectionPolicyIpFilterConfiguration"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "IpProtectionPolicyTrustedSubnetsConfiguration": {
+        "properties": {
+          "rules": {
+            "items": {
+              "$ref": "#/components/schemas/TrustedSubnetsRule"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "rules"
+        ],
+        "type": "object"
+      },
+      "IpProtectionPolicyTrustedSubnetsSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/IpProtectionPolicyTrustedSubnetsConfiguration"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "MaliciousFileUploadAvScanningConfiguration": {
+        "properties": {
+          "aggressive_level": {
+            "maximum": 4,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "buffered_scanning_max_bytes": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "extract_compression_level_limit": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "extract_file_count_limit": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "extract_file_size_limit_bytes": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "buffered_scanning_max_bytes"
+        ],
+        "type": "object"
+      },
+      "MaliciousFileUploadPolicy": {
+        "properties": {
+          "av_scanning": {
+            "$ref": "#/components/schemas/MaliciousFileUploadPolicyAVScanningSettings"
+          },
+          "size_check": {
+            "$ref": "#/components/schemas/MaliciousFileUploadPolicySizeCheckSettings"
+          }
+        },
+        "type": "object"
+      },
+      "MaliciousFileUploadPolicyAVScanningSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/MaliciousFileUploadAvScanningConfiguration"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "MaliciousFileUploadPolicySizeCheckSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/MaliciousFileUploadSizeCheckConfiguration"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "MaliciousFileUploadSizeCheckConfiguration": {
+        "properties": {
+          "max_bytes": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "max_bytes"
+        ],
+        "type": "object"
+      },
+      "MaliciousPayloadPattern": {
+        "properties": {
+          "cves": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "cvss_score": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "status"
+        ],
+        "type": "object"
+      },
+      "MaliciousPayloadPatternAlgoSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/MaliciousPayloadPatternList"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "MaliciousPayloadPatternList": {
+        "properties": {
+          "patterns": {
+            "items": {
+              "$ref": "#/components/schemas/MaliciousPayloadPattern"
+            },
+            "type": "array"
+          },
+          "report_payload": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "patterns"
+        ],
+        "type": "object"
+      },
+      "MaliciousPayloadPolicy": {
+        "properties": {
+          "malicious_pattern_match": {
+            "$ref": "#/components/schemas/MaliciousPayloadPatternAlgoSettings"
+          }
+        },
+        "required": [
+          "malicious_pattern_match"
+        ],
+        "type": "object"
+      },
+      "RcePolicy": {
+        "properties": {
+          "exec_control": {
+            "$ref": "#/components/schemas/CommandRulesAlgoSettings"
+          },
+          "http_params": {
+            "$ref": "#/components/schemas/RcePolicyHttpParamsSettings"
+          }
+        },
+        "type": "object"
+      },
+      "RcePolicyHttpParamsSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/EmptyObject"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "RedirectGlobRule": {
+        "properties": {
+          "action": {
+            "enum": [
+              "block",
+              "allow"
+            ],
+            "type": "string"
+          },
+          "glob": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "glob"
+        ],
+        "type": "object"
+      },
+      "RedirectGlobRuleAlgoSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/RedirectGlobRuleList"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "RedirectGlobRuleList": {
+        "properties": {
+          "rules": {
+            "items": {
+              "$ref": "#/components/schemas/RedirectGlobRule"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "rules"
+        ],
+        "type": "object"
+      },
+      "RedirectPolicy": {
+        "properties": {
+          "redirect_control": {
+            "$ref": "#/components/schemas/RedirectGlobRuleAlgoSettings"
+          }
+        },
+        "required": [
+          "redirect_control"
+        ],
+        "type": "object"
+      },
+      "SQLiAlgoSettings": {
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/EmptyObject"
+          },
+          "status": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "configuration",
+          "status"
+        ],
+        "type": "object"
+      },
+      "SQLiPolicy": {
+        "properties": {
+          "always_false": {
+            "$ref": "#/components/schemas/SQLiAlgoSettings"
+          },
+          "always_true": {
+            "$ref": "#/components/schemas/SQLiAlgoSettings"
+          },
+          "bad_function": {
+            "$ref": "#/components/schemas/SQLiAlgoSettings"
+          },
+          "http_params": {
+            "$ref": "#/components/schemas/SQLiAlgoSettings"
+          },
+          "stacking_queries": {
+            "$ref": "#/components/schemas/SQLiAlgoSettings"
+          },
+          "syntax_error": {
+            "$ref": "#/components/schemas/SQLiAlgoSettings"
+          },
+          "trailing_comment": {
+            "$ref": "#/components/schemas/SQLiAlgoSettings"
+          },
+          "union_set": {
+            "$ref": "#/components/schemas/SQLiAlgoSettings"
+          }
+        },
+        "required": [
+          "always_false",
+          "always_true",
+          "bad_function",
+          "http_params",
+          "stacking_queries",
+          "syntax_error",
+          "trailing_comment",
+          "union_set"
+        ],
+        "type": "object"
+      },
+      "TimeRange": {
+        "properties": {
+          "duration_mins": {
+            "maximum": 525600,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "start": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "duration_mins"
+        ],
+        "type": "object"
+      },
+      "TrustedSubnetsRule": {
+        "properties": {
+          "active_period": {
+            "$ref": "#/components/schemas/TimeRange"
+          },
+          "match": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "match"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Cloud One Application Security API",
+    "version": "1"
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/accounts/groups": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/GroupListItem"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "List of groups"
+          }
+        },
+        "summary": "Get account's groups.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "post": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupCreation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            },
+            "description": "New group added"
+          },
+          "400": {
+            "description": "Account does not exist."
+          },
+          "403": {
+            "description": "Unauthorized access."
+          },
+          "409": {
+            "description": "Group name already exists."
+          },
+          "422": {
+            "description": "Incorrect payload."
+          }
+        },
+        "summary": "Add new group.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/accounts/groups/{group_id}": {
+      "delete": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "204": {
+            "description": "Group deleted successfully"
+          }
+        },
+        "summary": "Delete group from account.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            },
+            "description": "Group detail"
+          }
+        },
+        "summary": "Get a group's detail.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupCreation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Group updated successfully"
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update group information.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/accounts/groups/{group_id}/settings": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupSettings"
+                }
+              }
+            },
+            "description": "Group settings."
+          }
+        },
+        "summary": "Get settings for a group.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupSettings"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Group settings updated successfully"
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update group settings.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/file_access/{group_id}/policy": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileAccessPolicy"
+                }
+              }
+            },
+            "description": "Retrieved the file access policy."
+          }
+        },
+        "summary": "Return the Illegal File Access policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileAccessPolicy"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successfully updated the file access policy."
+          },
+          "409": {
+            "description": "Failure to validate the file access policy rules."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update the Illegal File Access policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/ip_protection/{group_id}/policy": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpProtectionPolicy"
+                }
+              }
+            },
+            "description": "Successfully retrieved the IP Protection policy."
+          }
+        },
+        "summary": "Return the IP Protection Policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IpProtectionPolicy"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successfully updated the IP Protection policy."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update the IP Protection policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/ip_protection/{group_id}/policy/ip_filter/configuration/rules": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IpFilterRule"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully added IP filter rule."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Add a rule to the IP Filtering of the IP Protection Policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/ip_protection/{group_id}/policy/ip_filter/configuration/rules/{match}": {
+      "delete": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "204": {
+            "description": "Successfully deleted the IP filter rule"
+          }
+        },
+        "summary": "Remove a rule from the IP Filtering of the IP Protection Policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        {
+          "in": "path",
+          "name": "match",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/security/ip_protection/{group_id}/policy/trusted_subnets/configuration/rules": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TrustedSubnetsRule"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully added trusted subnets rule."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Add a rule to the Trusted IPs of the IP Protection Policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/ip_protection/{group_id}/policy/trusted_subnets/configuration/rules/{match}": {
+      "delete": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "204": {
+            "description": "Successfully deleted the trusted subnets rule"
+          }
+        },
+        "summary": "Remove a rule from the Trusted IPs of the IP Protection Policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        {
+          "in": "path",
+          "name": "match",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/security/malicious_file_upload/{group_id}/policy": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaliciousFileUploadPolicy"
+                }
+              }
+            },
+            "description": "Successfully retrieved the file upload policy."
+          }
+        },
+        "summary": "Return the Malicious File Upload policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaliciousFileUploadPolicy"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successfully updated the file upload policy."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update the Malicious File Upload policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/malicious_payload/{group_id}/policy": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaliciousPayloadPolicy"
+                }
+              }
+            },
+            "description": "Returns malicious payload policy."
+          },
+          "404": {
+            "description": "Could not find specified group."
+          }
+        },
+        "summary": "Return the Malicious Payload policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaliciousPayloadPolicy"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Malicious payload policy updated."
+          },
+          "404": {
+            "description": "Could not find specified group."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update the Malicious Payload policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/rce/{group_id}/policy": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RcePolicy"
+                }
+              }
+            },
+            "description": "Successfully retrieved the RCE policy."
+          }
+        },
+        "summary": "Return the Remote Command Execution policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RcePolicy"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successfully updated the Rce policy."
+          },
+          "409": {
+            "description": "Failure to validate the Rce policy rules."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update the Remote Command Execution policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/redirect/{group_id}/policy": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedirectPolicy"
+                }
+              }
+            },
+            "description": "Retrieved the redirect policy."
+          }
+        },
+        "summary": "Return the Open Redirect policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RedirectPolicy"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successfully updated the redirect policy."
+          },
+          "409": {
+            "description": "Failure to validate the redirect policy rules."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update the Open Redirect policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    },
+    "/security/sqli/{group_id}/policy": {
+      "get": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SQLiPolicy"
+                }
+              }
+            },
+            "description": "Retrieved the SQLi policy."
+          }
+        },
+        "summary": "Return the SQL Injection policy.",
+        "tags": [
+          "open_api"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "group_id",
+          "required": true,
+          "schema": {
+            "format": "uuid",
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "description": "To freeze the version of this endpoint, please add the following header\nto your requests:\n    - Accept: application/json; version=1.0",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SQLiPolicy"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successfully updated the file access policy."
+          },
+          "400": {
+            "description": "Invalid algorithm for SQLi policy."
+          },
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          }
+        },
+        "summary": "Update the SQL Injection policy.",
+        "tags": [
+          "open_api"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Replace `{region}` with your Trend Micro Cloud One account's region, for example: `us-1`.\n\nFor information on Trend Micro Cloud One accounts and regions, see the [Accounts help](https://cloudone.trendmicro.com/docs/identity-and-account-management/c1-accounts-about/).",
+      "url": "https://application.{region}.cloudone.trendmicro.com",
+      "variables": {
+        "region": {
+          "default": "us-1",
+          "enum": [
+            "au-1",
+            "ca-1",
+            "de-1",
+            "gb-1",
+            "in-1",
+            "jp-1",
+            "sg-1",
+            "us-1"
+          ]
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "description": "",
+      "name": "open_api"
+    }
+  ]
+}

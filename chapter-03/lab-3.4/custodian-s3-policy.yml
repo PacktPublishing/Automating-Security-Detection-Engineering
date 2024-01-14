@@ -1,0 +1,42 @@
+  ### S3 Related ###
+policies:
+  - name: s3-bucket-encryption-policy-absent
+    resource: s3
+    mode:
+      type: periodic
+      schedule: "rate(1 hour)"
+      role: arn:aws:iam::<YOUR-ACCOUNT>:role/cloud-custodian-role-deploy-lambdas
+      execution-options:
+        assume_role: arn:aws:iam::<YOUR-ACCOUNT>:role/cloud-custodian-role-s3-lambda
+        metrics: aws
+    description: s3 buckets without encryption required and re-enable encryption 
+    filters:
+      - type: no-encryption-statement
+    actions:
+      - type: set-bucket-encryption
+        crypto: AES256
+        enabled: True
+      - type: tag
+        tag: secops
+        value: remediated
+  - name: s3-bucket-public-block-absent
+    resource: s3
+    mode:
+      type: periodic
+      schedule: "rate(1 hour)"
+      role: arn:aws:iam::<YOUR-ACCOUNT>:role/cloud-custodian-role-deploy-lambdas
+      execution-options:
+        assume_role: arn:aws:iam::<YOUR-ACCOUNT>:role/cloud-custodian-role-s3-lambda
+        metrics: aws
+    description: s3 buckets without public access blocked are re-enabled
+    filters:
+    - type: check-public-block
+      BlockPublicAcls: true
+      BlockPublicPolicy: true
+    actions:
+      - type: set-public-block
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+      - type: tag
+        tag: secops
+        value: remediated

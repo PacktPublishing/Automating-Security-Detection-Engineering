@@ -1,0 +1,47 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:CreateFunction",
+                "lambda:TagResource",
+                "cloudwatch:PutMetricData",
+                "events:PutRule",
+                "lambda:GetFunctionConfiguration",
+                "lambda:CreateEventSourceMapping",
+                "lambda:UntagResource",
+                "lambda:PutFunctionConcurrency",
+                "iam:PassRole",
+                "logs:CreateLogStream",
+                "ec2:DescribeNetworkInterfaces",
+                "lambda:DeleteFunction",
+                "events:ListTargetsByRule",
+                "events:DescribeRule",
+                "lambda:UpdateEventSourceMapping",
+                "lambda:InvokeFunction",
+                "lambda:GetFunction",
+                "lambda:UpdateFunctionConfiguration",
+                "ec2:DeleteNetworkInterface",
+                "lambda:GetFunctionUrlConfig",
+                "logs:CreateLogGroup",
+                "logs:PutLogEvents",
+                "lambda:GetFunctionCodeSigningConfig",
+                "lambda:UpdateAlias",
+                "ec2:CreateNetworkInterface",
+                "lambda:UpdateFunctionCode",
+                "events:PutTargets",
+                "lambda:AddPermission",
+                "lambda:GetFunctionConcurrency",
+                "lambda:GetFunctionEventInvokeConfig",
+                "lambda:DeleteAlias",
+                "lambda:DeleteFunctionConcurrency",
+                "lambda:DeleteEventSourceMapping",
+                "lambda:RemovePermission",
+                "lambda:CreateAlias"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
