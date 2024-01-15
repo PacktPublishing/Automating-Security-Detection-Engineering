@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net" modified="2024-01-15T17:38:12.930Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="hV_z8r5-yCTQItzlmBdn" version="22.1.18" type="device">
+  <diagram name="Page-1" id="UEkS-pK8qP4tOVsTAB1x">
+    <mxGraphModel dx="1244" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ucfuvKETXQr9e85tGYWL-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ucfuvKETXQr9e85tGYWL-2" target="ucfuvKETXQr9e85tGYWL-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-2" value="Prioritize Detection&lt;br&gt;Needs from Risk and Threat Intel" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ucfuvKETXQr9e85tGYWL-3" target="ucfuvKETXQr9e85tGYWL-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-3" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="70" y="100" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-4" value="End" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="680" y="205" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ucfuvKETXQr9e85tGYWL-6" target="ucfuvKETXQr9e85tGYWL-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-6" value="Use Poe Chatbot for bootstrap syntax" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ucfuvKETXQr9e85tGYWL-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-24" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ucfuvKETXQr9e85tGYWL-11">
+          <mxGeometry x="0.6009" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-8" value="Validate Syntax&lt;br&gt;with Uncoder AI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ucfuvKETXQr9e85tGYWL-12" target="ucfuvKETXQr9e85tGYWL-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-23" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ucfuvKETXQr9e85tGYWL-22">
+          <mxGeometry x="-0.6" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-12" value="Ready&lt;br&gt;for&lt;br&gt;Testing?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="190" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ucfuvKETXQr9e85tGYWL-16" target="ucfuvKETXQr9e85tGYWL-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-16" value="Engineer analyze&lt;br&gt;and change" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ucfuvKETXQr9e85tGYWL-21" target="ucfuvKETXQr9e85tGYWL-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucfuvKETXQr9e85tGYWL-21" value="Push to GitHub Repo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

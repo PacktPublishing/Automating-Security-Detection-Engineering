@@ -1,0 +1,31 @@
+ # Requirements
+- The attached contents are from https://allinfosecnews.com/item/environmental-websites-hit-by-ddos-surge-in-cop28-crossfire-2024-01-15/. Parse accordingly.
+- Analyze the parsed contents to find indicators of compromise patterns.
+- Create a list of file hashes and process syntaxes to look for.
+- From the the output, generate a useful Splunk SPL correlation search using Splunk Enteprise Securitys standard data models and CIM compliant
+
+# Parsed contents
+A surge in DDoS attacks targeted several environmental advocacy websites during the COP28 climate talks in Buenos Aires last week. Security researchers believe the attacks originated from a botnet of thousands of compromised IoT devices. Targeted sites experienced spikes in traffic exceeding 1 Tbps.
+
+# Indicators of compromise
+- Botnet comprised of IoT devices (potentially compromised cameras, DVRs, routers etc.)
+- DDoS attack traffic exceeding 1 Tbps
+- Targeted environmental advocacy websites during COP28 climate talks
+
+# File hashes and processes 
+- Mirai variant malware files (to be determined)
+- Processes like sshd, telnetd, httpd (associated with common IoT default credentials exploitation)
+
+# Splunk SPL search
+| tstats `security_data` count min(Time) as FirstTime max(Time) as LastTime 
+FROM datamodel=Endpoint.Processes 
+WHERE ProcesName IN ("sshd", "telnetd", "httpd") 
+BY ClientIpAddress 
+| tstats `security_data` count min(Time) as FirstTime max(Time) as LastTime
+FROM datamodel=Network.Traffic 
+WHERE ProtoPort="80/tcp" OR ProtoPort="23/tcp" OR ProtoPort="22/tcp"
+BY ClientIpAddress
+| join kind=inner ClientIpAddress
+| `security_analytics` lookup iplocation ClientIpAddress 
+| `security_analytics` geoip lookup
+| `security_analytics` geoip metadata="Botnet C2 analysis"
