@@ -29,9 +29,9 @@ jobs:
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: configure aws credentials
-      uses: aws-actions/configure-aws-credentials@v1.7.0
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: arn:aws:iam::<YOUR_ACCOUNT_ID>:role/GithubOIDC-Actions-Role-NNNNNNNN #change to reflect your IAM role’s ARN
         role-session-name: GitHub_to_AWS_via_FederatedOIDC
