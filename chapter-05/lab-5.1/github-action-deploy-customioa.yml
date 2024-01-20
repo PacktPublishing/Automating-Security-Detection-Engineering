@@ -1,0 +1,38 @@
+#DE part of EDR CI init with GHEC use github.com/UKGEPIC/detection-engineering-edr
+name: Connect to an AWS role from a GitHub repository
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  ## TODO Figure out Secrets Management since Github Secrets and Env Variables are Not Approved yet. See 
+  #ensure this matches the final custom-ioa-cs.py function calls for the API client
+  CLIENT_ID : "foo"
+  CLIENT_SECRET : "bar"
+
+# Permission can be added at job level or workflow level    
+permissions:
+      #id-token: write   # This is required for requesting the JWT
+      contents: read    # This is required for actions/checkout
+jobs:
+  DeployFalconCustomIOAs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v3 #ensure repo is checked out so working directory is same
+      - name: Setup Python Packages
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+          cache: 'pip'
+      - run: pip install -r ./requirements.txt
+      - name: Validate Syntax
+        #TODO linter-custom-ioa.py needs refactor to include arguments to specify the usecase files
+        run: |
+          python linter-custom-ioa.py
+      - name: Deploy CS Falcon Custom IOA 
+        #TODO custom-ioa-cs.py neeeds refactor to use env variables instead of passing parameters for API client
+        run: |
+          python custom-ioa-cs.py ./path/to/usecaseimport.json

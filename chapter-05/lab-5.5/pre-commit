@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#git grep is grep but default scoped to your working commit dir
+#https://man7.org/linux/man-pages/man1/grep.1.html#EXIT_STATUS
+#https://git-scm.com/docs/git-grep
+#https://pre-commit.com/#new-hooks
+
+REGEX="(SECRET={\w{1,30})"
+
+
+grepSecrets() {
+  echo "Checking for potential secrets..."
+
+  if git grep -E "$(REGEX)"; then
+    echo "Potential secrets found!" 
+    exit 1
+  else
+    echo "No secrets found"
+  fi
+}
+
+grepSecrets

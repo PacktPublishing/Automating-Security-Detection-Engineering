@@ -1,0 +1,47 @@
+name: Suricata Unit Tests for Signatures
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - tests/*.pcap
+      - rules/*.rules
+      - buildspec.csv
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+#when running commit prior to a push you setup the cli parameters that should trigger a detection
+#env:
+  #test_payload: ${{ github.event.head_commit.message }}
+  
+permissions:
+      contents: read    # This is required for actions/checkout
+
+jobs:
+  SuricataRuleUnitTests:
+    # The type of runner that the job will run on
+    runs-on: Ubuntu-latest
+    environment: production
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      
+      #deploy python and cache requirements
+      - name: Setup Python Packages
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+      - name: Install Suricata
+        run: |
+          sudo apt install suricata -y     
+      - name: Run Unit Tests
+        run: |
+          python ./suricata-rule-test-ci.py

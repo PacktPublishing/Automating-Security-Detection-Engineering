@@ -1,0 +1,54 @@
+# simple unit payload based testing from meta in a CI
+# best to chain this workflow as reusable to a deployment workflow
+# reference within from your deployment action:
+# - name: run reusable unittest workflow
+#   uses: ./.github/workflows/unitetest-workflow-file.yml
+
+
+name: Chronicle YARA-L Rule Payload Unit Payload Tests
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - tests/*
+      #- chron-rules/*
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+#dont need env variables for simple unit tests. 
+#though you could specify in your commit message which file test name to use and rules and use eval
+#env:
+  #test_payload: ${{ github.event.head_commit.message }}
+
+permissions:
+      contents: read    # This is required for actions/checkout
+
+jobs:
+  DetectionTestTrigger:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest  #based on logical combination of labels
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      
+      #apparently github python is bare with no requests lib
+      - name: Setup Python Packages
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+          cache: 'pip'
+      - run: pip install -r ./requirements.txt
+      
+      # if you wanted to pass arguments from the message refactoring the script you can
+      #- name: Execute Payload from Commit Message
+      #  continue-on-error: true #doesnt gurantee trigger just bash not exiting on a non 0 condition
+      #  run: eval $test_payload
+              
+      - name: Run Tests
+        run: |
+          python ./tests/chron-yara-rule-testspec-ci.py #script relies on relative ./tests/testspec.txt file for runtime

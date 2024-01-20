@@ -1,0 +1,1 @@
+'./rules/test-exploit-zerologon.rules','ET EXPLOIT Possible Zerologon NetrServerAuthenticate','./tests/cve-2020-1472-exploit.pcap'

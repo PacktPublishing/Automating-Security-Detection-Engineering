@@ -1,0 +1,7 @@
+1. Run git init
+2  git config user.name and git config user.email 
+3. Copy pre-commit to .git/hooks/
+4. Make the file executable: chmod +x .git/hooks/pre-commit-grep-secrets
+5. Make a change like an extra "#" too bad-code.sh
+6. git add bad-code.sh 
+7. git commit -m "test hook"

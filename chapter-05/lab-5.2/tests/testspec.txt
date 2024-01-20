@@ -1,0 +1,2 @@
+payload: fsodp9ifjaposdfjhgosurijfaewrwergwea
+file_path: wannacry_killswitch_domain.yaral
