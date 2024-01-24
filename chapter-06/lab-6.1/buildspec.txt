@@ -1,0 +1,2 @@
+TEST_LOG:tests/audit-example-log.txt
+SPL_SEARCH:index=main exe=*bash

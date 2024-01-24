@@ -1,0 +1,74 @@
+#uses github action runner with terraform and s3 backed state with oidc federation
+#deploys eventbridge rules and then checks for correct firing
+name: 'AWS EventBridge Integration Testing'
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+env:
+  AWS_REGION : "us-east-1" #Change to reflect your Region
+  
+permissions:
+  contents: read
+  id-token: write   # This is required for requesting the JWT
+
+jobs:
+  StaticTest-Rules-and-Deploy-Dynamic-Test:
+    name: 'Static Validate Everbridge Terraform and Deploy'
+    runs-on: ubuntu-latest
+    environment: production
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::599752704917:role/GithubOIDC-Actions-Role-WdBZFIFGsMUs #change to reflect your IAM role’s ARN
+        role-session-name: GitHub_to_AWS_via_FederatedOIDC
+        aws-region: ${{ env.AWS_REGION }}
+      #deploy python and cache requirements
+    - name: Setup Python Packages
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10' 
+        cache: 'pip'
+    - run: pip install -r ./requirements.txt        
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    - name: Terraform Init
+      run: terraform init
+
+    # Checks that all Terraform configuration files adhere to a canonical format
+    - name: Terraform Format
+      run: terraform fmt
+      
+    # Self Lint
+    - name: Terraform Validate
+      run: terraform validate -no-color   
+
+    # Generates an execution plan for Terraform
+    - name: Terraform Plan
+      run: terraform plan -input=false
+
+      # On push to "main", build or change infrastructure according to Terraform configuration files
+      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
+    - name: Terraform Apply
+      #if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+      run: terraform apply -auto-approve -input=false -no-color
+
+      # Execute payload check on live env
+    - name: Execute Rule Tests
+      run: python ./tests/test-iam-access-key-generated-rule.py
+      # Validate results in Cloudwatch Metrics
+    - name: Validate Rule Tests
+      run: python ./tests/validate-iam-access-key-generated-rule.py
+      
+
+        

@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template for EventBridge rule 'iam-access-key-generated-rule'
+Resources:
+  EventRule0:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Triggers when an IAM user creates an access key instead of using a role.
+      EventBusName: default
+      EventPattern:
+        source:
+          - aws.iam
+        detail-type:
+          - AWS API Call via CloudTrail
+        detail:
+          eventSource:
+            - iam.amazonaws.com
+          eventName:
+            - CreateAccessKey
+      Name: iam-access-key-generated-rule
+      State: ENABLED
+      Targets:
+        - Id: <UUID-TO-YOUR-ACCOUNT>
+          Arn: arn:aws:sns:us-east-1:<YOUR-ACCOUNT-ID>:<YOUR-SNS-TOPIC-NAME>

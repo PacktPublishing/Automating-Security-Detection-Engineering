@@ -1,0 +1,63 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "VisualEditor0",
+			"Effect": "Allow",
+			"Action": [
+				"events:DescribeRule",
+				"iam:DeleteAccessKey",
+				"events:EnableRule",
+				"events:CreateApiDestination",
+				"events:PutRule",
+				"iam:UpdateAccessKey",
+				"events:DescribeEventSource",
+				"iam:CreateAccessKey",
+				"events:DescribeEventBus",
+				"cloudwatch:ListTagsForResource",
+				"events:ListTagsForResource",
+				"events:ListTargetsByRule",
+				"events:DescribeApiDestination",
+				"iam:ListAccessKeys"
+			],
+			"Resource": [
+				"arn:aws:events:*:<YOUR AWS ACCOUNT>:connection/*",
+				"arn:aws:events:*:<YOUR AWS ACCOUNT>:rule/*/*",
+				"arn:aws:events:*:<YOUR AWS ACCOUNT>:api-destination/*",
+				"arn:aws:events:*:<YOUR AWS ACCOUNT>:event-bus/*",
+				"arn:aws:events:*::event-source/*",
+				"arn:aws:iam::<YOUR AWS ACCOUNT>:user/*",
+				"arn:aws:cloudwatch:*:<YOUR AWS ACCOUNT>:service/*-*",
+				"arn:aws:cloudwatch:*:<YOUR AWS ACCOUNT>:alarm:*",
+				"arn:aws:cloudwatch:*:<YOUR AWS ACCOUNT>:insight-rule/*",
+				"arn:aws:cloudwatch:*:<YOUR AWS ACCOUNT>:slo/*"
+			]
+		},
+		{
+			"Sid": "VisualEditor1",
+			"Effect": "Allow",
+			"Action": [
+				"events:ListRuleNamesByTarget",
+				"cloudwatch:GetMetricData",
+				"cloudwatch:DescribeAlarmsForMetric",
+				"events:ListRules",
+				"events:ListEventBuses",
+				"cloudwatch:GetMetricStatistics",
+				"cloudwatch:ListMetrics"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "VisualEditor2",
+			"Effect": "Allow",
+			"Action": [
+				"events:DescribeRule",
+				"events:EnableRule",
+				"events:PutRule",
+				"events:ListTagsForResource",
+				"events:ListTargetsByRule"
+			],
+			"Resource": "arn:aws:events:*:<YOUR AWS ACCOUNT>:rule/<YOUR-TEST-USER>"
+		}
+	]
+}

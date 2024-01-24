@@ -1,0 +1,55 @@
+https://docs.splunk.com/Documentation/Splunk/latest/Data/MonitorfilesanddirectoriesusingtheCLI
+https://docs.splunk.com/Documentation/SplunkCloud/9.1.2308/SearchReference/AboutCLIsearches
+
+$SPLUNK_HOME/bin/splunk start --no-prompt
+
+./splunk cmd python /opt/splunk/bin/scripts/oneshot \
+  --index main \
+  --source /home/ssm-user/Downloads/example-auditd-log.txt \
+  --host 127.0.0.1
+
+
+/home/ssm-user/Downloads/example-auditd-log.txt
+sudo yum install expect -y
+
+./splunk help add oneshot
+./splunk add oneshot /home/ssm-user/Downloads/example-auditd-log.txt -index main -hostname 127.0.0.1 -sourcetype "syslog:linux:auditd"
+
+----
+
+
+[root@ip-172-31-30-202 bin]# ./splunk add oneshot /home/ssm-user/Downloads/example-auditd-log.txt -index main -hostname 127.0.0.1 -sourcetype "syslog:linux:auditd"
+WARNING: Server Certificate Hostname Validation is disabled. Please see server.conf/[sslConfig]/cliVerifyServerName for details.
+Splunk username: admin
+Password:
+Oneshot '/home/ssm-user/Downloads/example-auditd-log.txt' added
+[root@ip-172-31-30-202 bin]#
+
+
+---
+
+----# Script #----
+#!/bin/bash
+
+username="admin"
+password="splunksplunk"
+
+# Turn off input echoing
+stty -echo
+
+# Run splunk command
+echo "$username" | /opt/splunk/bin/splunk add oneshot /home/ssm-user/Downloads/example-auditd-log.txt -index main -hostname 127.0.0.1 -sourcetype "syslog:linux:auditd"
+
+# Enter password via stdin pipe
+echo "$password"
+
+# Turn input echoing back on
+stty echo
+
+# Handle prompt
+yes | head -n1
+
+
+--- # search test # ---
+
+/opt/splunk/bin/splunk search 'index=main *jsmith* earliest=-4h' -app search -maxout 10 -output auto -timeout 120

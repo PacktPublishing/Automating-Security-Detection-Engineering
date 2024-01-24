@@ -1,0 +1,54 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Use Case Tests for CS Falcon EDR Detections
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - usecase-tests/*
+    #  - ioa-rules/*
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+#when running commit prior to a push you setup the cli parameters that should trigger a detection
+env:
+  test_payload: ${{ github.event.head_commit.message }}
+  CS_CLIENT_ID: ${{ secrets.CS_CLIENT_ID }}
+  CS_CLIENT_SECRET: ${{ secrets.CS_CLIENT_SECRET }}
+
+permissions:
+      contents: read    # This is required for actions/checkout
+
+jobs:
+  DetectionTestTrigger:
+    # The type of runner that the job will run on
+    runs-on: [self-hosted, linux, dc-ubuntu] #based on logical combination of labels
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      
+      #deploy python and cache requirements
+      - name: Setup Python Packages
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+          cache: 'pip'
+      - run: pip install -r ./requirements.txt
+      
+      # Runs a single command using the runners shell
+      - name: Execute Payload from Commit Message
+        continue-on-error: true #doesnt gurantee trigger just bash not exiting on a non 0 condition
+        run: eval $test_payload
+        
+      # Wait for Trigger and Run Test Scripts
+      - name: Wait for Detections in CS Falcon
+        run: sleep 30 #use what makes sense
+        
+      - name: Run Tests
+        run: |
+          python ./usecase-tests/test-detections-host-cs.py #hard coded the our testing machine you can refactor later

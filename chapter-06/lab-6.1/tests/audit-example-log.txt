@@ -1,0 +1,7 @@
+type=SYSCALL msg=audit(1664132300.181:236): arch=c000003e syscall=59 success=yes exit=0 a0=7fffd11e5500 a1=7fffd11e4b50 a2=7fffd11e4c48 a3=0 items=0 ppid=3086 pid=3167 auid=1000 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=5 comm="sshd" exe="/usr/sbin/sshd" key=(null)
+type=USER_AUTH msg=audit(1664132300.181:237): user pid=3167 uid=0 auid=1000 ses=5 msg='op=PAM:authentication acct="jsmith" exe="/usr/sbin/sshd" hostname=? addr=? terminal=ssh res=success'
+type=USER_START msg=audit(1664132300.181:238): user pid=3167 uid=0 auid=1000 ses=5 msg='op=PAM:session_open acct="jsmith" exe="/usr/sbin/sshd" hostname=? addr=? terminal=ssh res=success'
+type=SYSCALL msg=audit(1664132305.181:239): arch=c000003e syscall=59 success=yes exit=0 a0=55b50fb0f330 a1=7fffd11e4b90 a2=7fffd11e4c88 a3=0 items=0 ppid=3167 pid=3169 auid=1000 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=5 comm="bash" exe="/usr/bin/bash" key=(null) 
+type=CWD msg=audit(1664132305.181:240): cwd="/home/jsmith"
+type=PATH msg=audit(1664132305.181:241): item=0 name="/bin/ls" inode=131099 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 objtype=NORMAL cap_fp=0000000000000000 cap_fi=0000000000000000 cap_fe=0 cap_fver=0
+type=USER_END msg=audit(1664132420.246:242): user pid=3167 uid=0 auid=1000 ses=5 msg='op=PAM:session_close acct="jsmith" exe="/usr/sbin/sshd" hostname=? addr=? terminal=ssh res=success'

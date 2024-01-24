@@ -1,0 +1,22 @@
+aws cloudwatch get-metric-data \
+  --metric-data-queries '[
+    {
+      "Id": "metricQuery",
+      "MetricStat": {
+        "Metric": {
+          "Namespace": "AWS/Events",
+          "MetricName": "MatchedEvents",
+          "Dimensions": [
+            {
+              "Name": "RuleName",
+              "Value": "iam-access-key-generated-rule"
+            }
+          ]
+        },
+        "Period": 300,
+        "Stat": "Sum"
+      }
+    }
+  ]' \
+  --start-time "2024-01-17T00:00:00Z" \
+  --end-time "2024-01-17T23:59:59Z"
