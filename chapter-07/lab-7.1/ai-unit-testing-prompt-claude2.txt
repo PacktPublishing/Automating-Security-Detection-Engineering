@@ -1,0 +1,9 @@
+- name: Run LLM Engine 1
+  run: |
+  python ./llm-engine-1-test-increment-var.py
+- name: Run LLM Engine 2
+  run: |
+  python ./llm-engine-2-test-increment-var.py
+- name: Calculate Min Score Vote
+  run: |
+  if [[ $SUM_SCORE -le 5 ]]; then echo "FAIL: Threshold Not Met" && exit 1; fi

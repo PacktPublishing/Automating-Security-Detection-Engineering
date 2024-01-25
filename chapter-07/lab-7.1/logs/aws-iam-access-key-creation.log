@@ -1,0 +1,56 @@
+{
+    "eventVersion": "1.09",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AYMPTTZB7KOAMAJXYAORA:GitHub_to_AWS_via_FederatedOIDC",
+        "arn": "arn:aws:sts::112233445566:assumed-role/GithubOIDC-Actions-Role-WdBZFIFGsMUs/GitHub_to_AWS_via_FederatedOIDC",
+        "accountId": "112233445566",
+        "accessKeyId": "ASIAYXJAMAOK345GLT6U",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AYMPTTZB7KOAMAJXYAORA",
+                "arn": "arn:aws:iam::112233445566:role/GithubOIDC-Actions-Role-WdBZFIFGsMUs",
+                "accountId": "112233445566",
+                "userName": "GithubOIDC-Actions-Role-WdBZFIFGsMUs"
+            },
+            "webIdFederationData": {
+                "federatedProvider": "arn:aws:iam::112233445566:oidc-provider/token.actions.githubusercontent.com",
+                "attributes": {}
+            },
+            "attributes": {
+                "creationDate": "2024-01-17T23:41:35Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2024-01-17T23:42:03Z",
+    "eventSource": "iam.amazonaws.com",
+    "eventName": "CreateAccessKey",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "40.84.170.239",
+    "userAgent": "Boto3/1.34.21 md/Botocore#1.34.21 ua/2.0 os/linux#6.2.0-1018-azure md/arch#x86_64 lang/python#3.10.13 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.21",
+    "requestParameters": {
+        "userName": "someUser"
+    },
+    "responseElements": {
+        "accessKey": {
+            "userName": "someUser",
+            "accessKeyId": "AKIAYXJAMAOKVPGE4AX7",
+            "status": "Active",
+            "createDate": "Jan 17, 2024 11:42:03 PM"
+        }
+    },
+    "requestID": "798a9942-cc13-4c10-bfe3-1dd196e9c468",
+    "eventID": "1e1a9eb4-3c2a-4f4d-83b2-704216ac71ff",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "112233445566",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "iam.amazonaws.com"
+    }
+}

@@ -1,0 +1,7 @@
+`cloudtrail` eventName = CreateAccessKey userAgent !=console.amazonaws.com errorCode = success 
+| eval match=if(match(userIdentity.userName,requestParameters.userName),1,0) 
+| search match=0 
+| stats count min(_time) as firstTime max(_time) as lastTime by requestParameters.userName src eventName eventSource aws_account_id errorCode userAgent eventID awsRegion userIdentity.principalId user_arn 
+| `security_content_ctime(firstTime)` 
+| `security_content_ctime(lastTime)` 
+|`aws_createaccesskey_filter`

@@ -1,0 +1,40 @@
+name: AI Splunk SPL Synthethic Testing
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - detections/*.spl
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+#when running commit prior to a push you setup the cli parameters that should trigger a detection
+env:
+  POE_API: ${{ secrets.POE_API }}
+
+permissions:
+      contents: read    # This is required for actions/checkout
+
+jobs:
+  DetectionTestTrigger:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest #based on logical combination of labels
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      
+      #deploy python and cache requirements
+      - name: Setup Python Packages
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+          cache: 'pip'
+      - run: pip install -r ./requirements.txt
+      #run AI tests assumes buildspec.csv is in root        
+      - name: Run Tests
+        run: |
+          python ./ci-spl-tester-poe.py
