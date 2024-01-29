@@ -1,0 +1,95 @@
+{
+    "alerts": [
+        {
+            "asset": {
+                "hostname": "host1234.altostrat.com"
+            },
+            "alertInfos": [
+                {
+                    "name": "Antimalware Action Taken",
+                    "sourceProduct": "Microsoft ASC",
+                    "severity": "HIGH",
+                    "timestamp": "2020-11-15T07:21:35Z",
+                    "rawLog": "<omitted for simplicity>",
+                    "uri": [
+                        "<omitted for simplicity>"
+                    ],
+                    "udmEvent": {
+                        "metadata": {
+                            "eventTimestamp": "2020-11-15T07:21:35Z",
+                            "eventType": "SCAN_FILE",
+                            "vendorName": "Microsoft",
+                            "productName": "ASC",
+                            "productEventType": "Antimalware Action Taken",
+                            "description": "<omitted for simplicity>",
+                            "urlBackToProduct": "<omitted for simplicity>",
+                            "ingestedTimestamp": "2020-11-30T19:01:11.486605Z"
+                        },
+                        "principal": {
+                            "hostname": "host1234.altostrat.com"
+                        },
+                        "target": {
+                            "file": {
+                                "fullPath": "<omitted for simplicity>"
+                            }
+                        },
+                        "securityResult": [
+                            {
+                                "threatName": "WS.Reputation.1",
+                                "ruleName": "AntimalwareActionTaken",
+                                "summary": "Antimalware Action Taken",
+                                "description": "<omitted for simplicity>",
+                                "severity": "HIGH"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "userAlerts": [
+        {
+            "user": {
+                "email": "john.doe@altostrat.com"
+            },
+            "alertInfos": [
+                {
+                    "name": "<omitted for simplicity>",
+                    "sourceProduct": "Office 365 Security and Compliance",
+                    "timestamp": "2020-11-15T13:15:00Z",
+                    "rawLog": "<omitted for simplicity>",
+                    "uri": [
+                        "<omitted for simplicity>"
+                    ],
+                    "udmEvent": {
+                        "metadata": {
+                            "eventTimestamp": "2020-11-15T13:15:00Z",
+                            "eventType": "EMAIL_TRANSACTION",
+                            "vendorName": "Microsoft",
+                            "productName": "Office 365 Security and Compliance",
+                            "productEventType": "<omitted for simplicity>",
+                            "description": "<omitted for simplicity>",
+                            "ingestedTimestamp": "2020-11-30T18:29:36.164727Z"
+                        },
+                        "securityResult": [
+                            {
+                                "ruleName": "ThreatManagement",
+                                "summary": "Email reported by user as malware or phish",
+                                "description": "<omitted for simplicit>",
+                                "severity": "INFORMATIONAL"
+                            }
+                        ],
+                        "network": {
+                            "email": {
+                                "from": "Webinars\\\\u003cwebinars@example.com\\\\u003e",
+                                "to": [
+                                    "john.doe@altostrat.com"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

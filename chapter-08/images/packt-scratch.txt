@@ -1,0 +1,44 @@
+let timeRange = 7d;
+SecurityAlert
+| where TimeGenerated > ago(timeRange)
+| summarize ResolvedCount = countif(Status == "Resolved"), DismissedCount = countif(Status == "Dismissed") 
+| extend TotalCount = ResolvedCount + DismissedCount
+| extend ResolvedRatio = ResolvedCount * 100.0 / TotalCount
+| extend DismissedRatio = DismissedCount * 100.0 / TotalCount
+| project TimeRange = timeRange, ResolvedCount, DismissedCount, TotalCount, ResolvedRatio, DismissedRatio
+
+
+----
+
+
+project = <YOUR-JIRA-PROJ> AND issuetype not in (Epic) AND status in (Closed, Resolved) AND resolutiondate >= -7d AND assignee in ("<TEAMMEMBER1@DOMAIN.COM>", "<TEAMMEMBER2@DOMAIN.COM>") AND labels in ("<SOME-LABEL>") ORDER BY priority DESC
+
+----
+#Correlation rules not fired
+index=_internal sourcetype=scheduler result_count=0 app=<YOUR-APP-CONTEXT> earliest=-90d@d | stats count by savedsearch_name | sort count desc
+
+#Index Lag Delays
+index=<YOUR-INDEX> sourcetype=<YOUR-SOURCETYPE>
+| eval indextime=_indextime, delay_mins=(indextime-_time)/60
+| stats count(delay_mins) as total_log_count
+mean(delay_mins) as average_delay_minutes
+min(delay_mins) as min_delay_mins
+perc25(delay_mins) as perc25_delay_mins
+median(delay_mins) as median_delay_minutes
+perc75(delay_mins) as perc75_delay_mins
+perc95(delay_mins) as perc95_delay_mins
+max(delay_mins) as max_delay_mins
+|foreach *
+[eval <<FIELD>>=round(<<FIELD>>, 2)]
+
+----
+
+Measuring Use Case Performance 
+
+Identifying Telementry Sources 
+
+Creating Monitoring Dashboards
+
+https://goo.gle/chroniclelab
+
+Telemetry 

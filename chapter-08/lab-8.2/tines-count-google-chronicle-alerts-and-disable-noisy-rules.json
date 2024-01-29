@@ -1,0 +1,372 @@
+{
+  "schema_version": 18,
+  "standard_lib_version": 42,
+  "action_runtime_version": 6,
+  "name": "Count-Google-Chronicle-Alerts-and-Disable-Noisy-Rules",
+  "description": "Retrieve recent alerts from Google Chronicle, deduplicate similar alerts each day, and create Jira tickets for tracking.",
+  "guid": "f49b6b8e63038426b63e19b46bb023db",
+  "slug": "count_google_chronicle_alerts_and_disable_noisy_rules",
+  "agents": [
+    {
+      "type": "Agents::HTTPRequestAgent",
+      "name": "Get Chronicle Recent Alerts",
+      "disabled": false,
+      "description": null,
+      "guid": "fadda0304fd697a9d14b062f7c35be77",
+      "origin_story_identifier": "cloud:d521f765a49c72507257a2620612ee96:a48bdc93e85dbe8c16fabb95c4794f05",
+      "options": {
+        "url": "https://backstory.googleapis.com/v1/alert/listalerts",
+        "content_type": "application_json",
+        "method": "get",
+        "payload": {
+          "start_time": "<<DATE(\"now\", \"%s\") |> MINUS(%, 800000000) |> DATE(%, \"%Y-%m-%dT%H:%M:%SZ\")>>",
+          "end_time": "<<DATE(\"now\", \"%Y-%m-%dT%H:%M:%SZ\")>>",
+          "page_size": "100"
+        },
+        "headers": {
+          "Authorization": "Bearer <<CREDENTIAL.chronicle>>"
+        }
+      },
+      "reporting": {
+        "time_saved_value": 0,
+        "time_saved_unit": "minutes"
+      },
+      "monitoring": {
+        "monitor_all_events": false,
+        "monitor_failures": false,
+        "monitor_no_events_emitted": null
+      },
+      "template": {
+        "created_from_template_guid": null,
+        "created_from_template_version": null
+      },
+      "visuals": {
+        "card_icon_image_contents": null,
+        "card_icon_image_filename": null,
+        "card_icon_name": null
+      },
+      "width": null,
+      "schedule": []
+    },
+    {
+      "type": "Agents::EventTransformationAgent",
+      "name": "Explode Alerts",
+      "disabled": false,
+      "description": null,
+      "guid": "1fb0b928bc45d9bc5cd9659d2b2228c0",
+      "origin_story_identifier": "cloud:d521f765a49c72507257a2620612ee96:a48bdc93e85dbe8c16fabb95c4794f05",
+      "options": {
+        "mode": "explode",
+        "path": "=get_chronicle_recent_alerts.body.alerts",
+        "to": "alert"
+      },
+      "reporting": {
+        "time_saved_value": 0,
+        "time_saved_unit": "minutes"
+      },
+      "monitoring": {
+        "monitor_all_events": false,
+        "monitor_failures": false,
+        "monitor_no_events_emitted": null
+      },
+      "template": {
+        "created_from_template_guid": null,
+        "created_from_template_version": null
+      },
+      "visuals": {
+        "card_icon_image_contents": null,
+        "card_icon_image_filename": null,
+        "card_icon_name": null
+      },
+      "width": null,
+      "schedule": null
+    },
+    {
+      "type": "Agents::EventTransformationAgent",
+      "name": "Explode securityResult from Alert",
+      "disabled": false,
+      "description": null,
+      "guid": "79f44d163dcd8b66ff752d88fb13af87",
+      "origin_story_identifier": "cloud:d521f765a49c72507257a2620612ee96:a48bdc93e85dbe8c16fabb95c4794f05",
+      "options": {
+        "mode": "explode",
+        "path": "=explode_alerts.alert.securityResult.ruleName",
+        "to": "ruleName"
+      },
+      "reporting": {
+        "time_saved_value": 0,
+        "time_saved_unit": "minutes"
+      },
+      "monitoring": {
+        "monitor_all_events": false,
+        "monitor_failures": false,
+        "monitor_no_events_emitted": null
+      },
+      "template": {
+        "created_from_template_guid": null,
+        "created_from_template_version": null
+      },
+      "visuals": {
+        "card_icon_image_contents": null,
+        "card_icon_image_filename": null,
+        "card_icon_name": null
+      },
+      "width": null,
+      "schedule": null
+    },
+    {
+      "type": "Agents::HTTPRequestAgent",
+      "name": "Disable Alerting for a Rule in Chronicle",
+      "disabled": false,
+      "description": "Disable alerting for a detection rule in Chronicle",
+      "guid": "d06c58c9ae33a12c05ecc85814f230c8",
+      "origin_story_identifier": "cloud:ff0b00e888d6c74e0b6c6aabfa0b601f:f49b6b8e63038426b63e19b46bb023db",
+      "options": {
+        "url": "https://backstory.googleapis.com/v2/detect/rules/<<list_rules_in_chronicle.rules.ruleId>>:disableAlerting",
+        "content_type": "json",
+        "method": "post",
+        "payload": {},
+        "headers": {
+          "Authorization": "Bearer <<CREDENTIAL.chronicle>>"
+        }
+      },
+      "reporting": {
+        "time_saved_value": 0,
+        "time_saved_unit": "minutes"
+      },
+      "monitoring": {
+        "monitor_all_events": false,
+        "monitor_failures": false,
+        "monitor_no_events_emitted": null
+      },
+      "template": {
+        "created_from_template_guid": "8950107bc2573c043bd7cfca091a45738c746652a339845e3bc4256d5547ca3e",
+        "created_from_template_version": null
+      },
+      "visuals": {
+        "card_icon_image_contents": null,
+        "card_icon_image_filename": null,
+        "card_icon_name": null
+      },
+      "width": null,
+      "schedule": null
+    },
+    {
+      "type": "Agents::TriggerAgent",
+      "name": "If 10 sets of 10 rule bursts",
+      "disabled": false,
+      "description": null,
+      "guid": "a8795deda8ce32c2c40c49c1ccf97d0e",
+      "origin_story_identifier": "cloud:ff0b00e888d6c74e0b6c6aabfa0b601f:f49b6b8e63038426b63e19b46bb023db",
+      "options": {
+        "rules": [
+          {
+            "type": "field>=value",
+            "value": "10",
+            "path": "=COUNTIF(explode_securityresult_from_alert.guid)"
+          }
+        ]
+      },
+      "reporting": {
+        "time_saved_value": 0,
+        "time_saved_unit": "minutes"
+      },
+      "monitoring": {
+        "monitor_all_events": false,
+        "monitor_failures": false,
+        "monitor_no_events_emitted": null
+      },
+      "template": {
+        "created_from_template_guid": null,
+        "created_from_template_version": null
+      },
+      "visuals": {
+        "card_icon_image_contents": null,
+        "card_icon_image_filename": null,
+        "card_icon_name": null
+      },
+      "width": null
+    },
+    {
+      "type": "Agents::EventTransformationAgent",
+      "name": "Implode securityResults to Array",
+      "disabled": false,
+      "description": null,
+      "guid": "35f5c09a815f2406d96ddf7b9a87cecc",
+      "origin_story_identifier": "cloud:ff0b00e888d6c74e0b6c6aabfa0b601f:f49b6b8e63038426b63e19b46bb023db",
+      "options": {
+        "mode": "implode",
+        "item_path": "=explode_securityresult_from_alert.ruleName",
+        "guid_path": "=explode_securityresult_from_alert.guid",
+        "size_path": "=10"
+      },
+      "reporting": {
+        "time_saved_value": 0,
+        "time_saved_unit": "minutes"
+      },
+      "monitoring": {
+        "monitor_all_events": false,
+        "monitor_failures": false,
+        "monitor_no_events_emitted": null
+      },
+      "template": {
+        "created_from_template_guid": null,
+        "created_from_template_version": null
+      },
+      "visuals": {
+        "card_icon_image_contents": null,
+        "card_icon_image_filename": null,
+        "card_icon_name": null
+      },
+      "width": null,
+      "schedule": null
+    },
+    {
+      "type": "Agents::HTTPRequestAgent",
+      "name": "List Rules in Chronicle",
+      "disabled": false,
+      "description": "List detection rules in Chronicle",
+      "guid": "b1198428468ad5208b74b3bd91b03e30",
+      "origin_story_identifier": "cloud:ff0b00e888d6c74e0b6c6aabfa0b601f:f49b6b8e63038426b63e19b46bb023db",
+      "options": {
+        "url": "https://backstory.googleapis.com/v2/detect/rules/",
+        "content_type": "json",
+        "method": "get",
+        "payload": {},
+        "headers": {
+          "Authorization": "Bearer <<CREDENTIAL.chronicle>>"
+        }
+      },
+      "reporting": {
+        "time_saved_value": 0,
+        "time_saved_unit": "minutes"
+      },
+      "monitoring": {
+        "monitor_all_events": false,
+        "monitor_failures": false,
+        "monitor_no_events_emitted": null
+      },
+      "template": {
+        "created_from_template_guid": "b27608bb942d18b66328df5ec059581207a6c47004041ebf6fee29fc3dfbb91e",
+        "created_from_template_version": null
+      },
+      "visuals": {
+        "card_icon_image_contents": null,
+        "card_icon_image_filename": null,
+        "card_icon_name": null
+      },
+      "width": null,
+      "schedule": null
+    },
+    {
+      "type": "Agents::TriggerAgent",
+      "name": "If ruleName in ruleList",
+      "disabled": false,
+      "description": null,
+      "guid": "e0ffa9ecdcf2b36f1cc90b6d84708842",
+      "origin_story_identifier": "cloud:ff0b00e888d6c74e0b6c6aabfa0b601f:f49b6b8e63038426b63e19b46bb023db",
+      "options": {
+        "rules": [
+          {
+            "type": "in",
+            "value": "explode_alerts.alert.securityResult.ruleName",
+            "path": "=list_rules_in_chronicle.rules.ruleName"
+          }
+        ]
+      },
+      "reporting": {
+        "time_saved_value": 0,
+        "time_saved_unit": "minutes"
+      },
+      "monitoring": {
+        "monitor_all_events": false,
+        "monitor_failures": false,
+        "monitor_no_events_emitted": null
+      },
+      "template": {
+        "created_from_template_guid": null,
+        "created_from_template_version": null
+      },
+      "visuals": {
+        "card_icon_image_contents": null,
+        "card_icon_image_filename": null,
+        "card_icon_name": null
+      },
+      "width": null
+    }
+  ],
+  "diagram_notes": [],
+  "links": [
+    {
+      "source": 0,
+      "receiver": 1
+    },
+    {
+      "source": 1,
+      "receiver": 2
+    },
+    {
+      "source": 2,
+      "receiver": 5
+    },
+    {
+      "source": 4,
+      "receiver": 6
+    },
+    {
+      "source": 5,
+      "receiver": 4
+    },
+    {
+      "source": 6,
+      "receiver": 7
+    },
+    {
+      "source": 7,
+      "receiver": 3
+    }
+  ],
+  "diagram_layout": "{\"fadda0304fd697a9d14b062f7c35be77\":[600,315],\"1fb0b928bc45d9bc5cd9659d2b2228c0\":[600,405],\"79f44d163dcd8b66ff752d88fb13af87\":[600,495],\"d06c58c9ae33a12c05ecc85814f230c8\":[600,1005],\"a8795deda8ce32c2c40c49c1ccf97d0e\":[600,750],\"35f5c09a815f2406d96ddf7b9a87cecc\":[600,630],\"b1198428468ad5208b74b3bd91b03e30\":[600,840],\"e0ffa9ecdcf2b36f1cc90b6d84708842\":[600,930]}",
+  "send_to_story_enabled": false,
+  "entry_agent_guid": null,
+  "exit_agent_guids": [],
+  "exit_agent_guid": null,
+  "api_entry_action_guids": [],
+  "api_exit_action_guids": [],
+  "keep_events_for": 86400,
+  "reporting_status": true,
+  "send_to_story_access": null,
+  "story_library_metadata": {
+    "tags": [
+      "A1003",
+      "A2005",
+      "Alerts",
+      "Case Management",
+      "Chronicle",
+      "Google",
+      "Intermediate",
+      "A2001"
+    ],
+    "icons": [
+      "google",
+      "👯",
+      "jira"
+    ],
+    "visibility": "public"
+  },
+  "monitor_failures": false,
+  "send_to_stories": [],
+  "form": null,
+  "synchronous_webhooks_enabled": false,
+  "forms": [],
+  "pages": [],
+  "tags": [],
+  "time_saved_unit": "minutes",
+  "time_saved_value": 0,
+  "origin_story_identifier": "cloud:d521f765a49c72507257a2620612ee96:a48bdc93e85dbe8c16fabb95c4794f05",
+  "integration_product": null,
+  "integration_vendor": null,
+  "exported_at": "2024-01-29T00:41:25Z",
+  "icon": ":google:",
+  "integrations": []
+}

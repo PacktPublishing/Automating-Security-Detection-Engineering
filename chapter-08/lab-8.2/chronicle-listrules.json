@@ -1,0 +1,55 @@
+{
+  "rules": [
+    {
+      "ruleId": "ru_e6abfcb5-1b85-41b0-b64c-695b3250436f",
+      "versionId": "ru_e6abfcb5-1b85-41b0-b64c-695b3250436f@v_1602631093_146879000",
+      "ruleName": "SampleRule",
+      "metadata": {
+        "description": "Sample Description of the latest version of the Rule",
+        "author": "author@example.com"
+      },
+      "ruleText": "rule SampleRule {
+        // Multi event rule to detect logins from a single user for
+        // multiple cities within a 5 minute window.
+        meta:
+          description = \"Sample Description of the latest version of the Rule\"
+          author = \"author@example.com\"
+        events:
+          $e.metadata.event_type = \"USER_LOGIN\"
+          $e.principal.user.userid = $user
+          $e.principal.location.city = $city
+        match:
+          $user over 5m
+        condition:
+          #city > 1
+        } ",
+      "liveRuleEnabled": true,
+      "versionCreateTime": "2020-10-13T23:18:13.146879Z",
+      "compilationState": "SUCCEEDED"
+      "ruleType": "MULTI_EVENT",
+    },
+    {
+      "ruleId": "ru_1971c2ac-8d5b-41aa-bb30-f95d220e9439",
+      "versionId": "ru_1971c2ac-8d5b-41aa-bb30-f95d220e9439@v_1598398482_260223000",
+      "ruleName": "SampleRule2",
+      "metadata": {
+        "description": "Sample Description of the latest version of the Rule",
+        "author": "author2@example.com"
+      },
+      "ruleText": "rule SampleRule2 {
+        meta:
+          description = \"Sample Description of the latest version of the Rule\"
+          author = \"author2@example.com\"
+        events:
+        // Single event rule to generate detections for network events involving example.com
+          $event.network.dns.questions.name = \"example.com\"
+        condition:
+          $event
+        } ",
+      "versionCreateTime": "2020-8-25T23:34:42.260223",
+      "compilationState": "SUCCEEDED"
+      "ruleType": "SINGLE_EVENT",
+
+    }
+  ]
+}

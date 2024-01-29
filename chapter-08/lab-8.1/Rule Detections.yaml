@@ -1,0 +1,694 @@
+lookml:
+- dashboard: rule_detections
+  elements:
+  - col: 0
+    conditional_formatting_include_nulls: false
+    conditional_formatting_include_totals: false
+    defaults_version: 1
+    enable_conditional_formatting: false
+    explore: rule_detections
+    fields:
+    - rule_detections.count
+    - rule_detections.event_timestamp_week
+    fill_fields:
+    - rule_detections.event_timestamp_week
+    header_font_size: 12
+    header_text_alignment: left
+    height: 6
+    hide_row_totals: false
+    hide_totals: false
+    interpolation: linear
+    label_density: 25
+    legend_position: center
+    limit: 500
+    limit_displayed_rows: false
+    listen:
+      Time: rule_detections.event_timestamp_time
+    model: cn
+    name: Rule Detections Over Time
+    plot_size_by_field: false
+    point_style: none
+    query_timezone: America/Los_Angeles
+    row: 0
+    rows_font_size: 12
+    show_null_points: true
+    show_row_numbers: true
+    show_value_labels: false
+    show_view_names: false
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    size_to_fit: true
+    sorts:
+    - rule_detections.event_timestamp_week desc
+    stacking: ""
+    table_theme: white
+    title: Rule Detections Over Time
+    transpose: false
+    trellis: ""
+    truncate_text: true
+    type: looker_line
+    width: 8
+    x_axis_gridlines: false
+    x_axis_label: Date
+    x_axis_reversed: false
+    x_axis_scale: auto
+    y_axes:
+    - label: Rule Detections
+      orientation: left
+      series:
+      - axisId: rule_detections.count
+        id: rule_detections.count
+        name: Rule Detections
+      showLabels: true
+      showValues: true
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+    y_axis_combined: true
+    y_axis_gridlines: true
+    y_axis_reversed: false
+    y_axis_scale_mode: linear
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+  - col: 16
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      options:
+        steps: 5
+      palette_id: de0bdb92-9455-489c-afa7-f0e0fdc76078
+    conditional_formatting_include_nulls: false
+    conditional_formatting_include_totals: false
+    defaults_version: 1
+    enable_conditional_formatting: false
+    explore: rule_detections
+    fields:
+    - rule_detections.event_timestamp_date
+    - rule_detections.count
+    - rule_detections.severity
+    filters:
+      rule_detections.severity: -NULL,-EMPTY
+    header_font_size: 12
+    header_text_alignment: left
+    height: 6
+    hidden_fields: []
+    hide_row_totals: false
+    hide_totals: false
+    interpolation: linear
+    label_density: 25
+    legend_position: center
+    limit: 500
+    limit_displayed_rows: false
+    listen:
+      Time: rule_detections.event_timestamp_time
+    model: cn
+    name: Rule Detections by Severity Over Time
+    pivots:
+    - rule_detections.severity
+    plot_size_by_field: false
+    point_style: none
+    query_timezone: America/Los_Angeles
+    row: 0
+    rows_font_size: 12
+    show_null_points: true
+    show_row_numbers: true
+    show_silhouette: false
+    show_totals_labels: false
+    show_value_labels: false
+    show_view_names: false
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    size_to_fit: true
+    sorts:
+    - rule_detections.event_timestamp_date desc
+    - rule_detections.severity 0
+    stacking: ""
+    table_theme: white
+    title: Rule Detections by Severity Over Time
+    totals_color: '#808080'
+    transpose: false
+    trellis: ""
+    truncate_text: true
+    type: looker_area
+    width: 8
+    x_axis_gridlines: false
+    x_axis_label: Date
+    x_axis_reversed: false
+    x_axis_scale: auto
+    y_axes:
+    - label: Rule Detections
+      orientation: left
+      series:
+      - axisId: rule_detections.count
+        id: High - rule_detections.count
+        name: High
+      - axisId: rule_detections.count
+        id: Info - rule_detections.count
+        name: Info
+      - axisId: rule_detections.count
+        id: Medium - rule_detections.count
+        name: Medium
+      showLabels: true
+      showValues: true
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+    y_axis_combined: true
+    y_axis_gridlines: true
+    y_axis_reversed: false
+    y_axis_scale_mode: linear
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+  - col: 8
+    color_application:
+      collection_id: da8306b5-3b46-48aa-9ead-a3b32292f35c
+      options:
+        reverse: false
+        steps: 5
+      palette_id: 75905e81-dadc-472c-b9a2-a201f788d55d
+    conditional_formatting_include_nulls: false
+    conditional_formatting_include_totals: false
+    defaults_version: 1
+    enable_conditional_formatting: false
+    explore: rule_detections
+    fields:
+    - rule_detections.count
+    - rule_detections.severity
+    filters:
+      rule_detections.severity: -NULL,-EMPTY
+    header_font_size: 12
+    header_text_alignment: left
+    height: 6
+    hidden_fields: []
+    hide_row_totals: false
+    hide_totals: false
+    interpolation: linear
+    label_density: 25
+    label_type: labPer
+    legend_position: center
+    limit: 50
+    limit_displayed_rows: false
+    listen:
+      Time: rule_detections.event_timestamp_time
+    model: cn
+    name: Rule Detections by Severity
+    plot_size_by_field: false
+    point_style: none
+    query_timezone: America/Los_Angeles
+    row: 0
+    rows_font_size: 12
+    series_colors: {}
+    show_null_points: true
+    show_row_numbers: true
+    show_silhouette: false
+    show_totals_labels: false
+    show_value_labels: false
+    show_view_names: false
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    size_to_fit: true
+    sorts:
+    - rule_detections.severity 0
+    stacking: ""
+    table_theme: white
+    title: Rule Detections by Severity
+    totals_color: '#808080'
+    transpose: false
+    trellis: ""
+    truncate_text: true
+    type: looker_pie
+    value_labels: legend
+    width: 8
+    x_axis_gridlines: false
+    x_axis_reversed: false
+    x_axis_scale: auto
+    y_axis_combined: true
+    y_axis_gridlines: true
+    y_axis_reversed: false
+    y_axis_scale_mode: linear
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+  - col: 0
+    conditional_formatting_include_nulls: false
+    conditional_formatting_include_totals: false
+    defaults_version: 1
+    enable_conditional_formatting: false
+    explore: rule_detections
+    fields:
+    - rule_detections.count_for_drill
+    - rule_detections.rule_name
+    header_font_size: "12"
+    header_text_alignment: left
+    height: 6
+    hidden_fields: []
+    hide_row_totals: false
+    hide_totals: false
+    interpolation: linear
+    label_density: 25
+    label_type: labPer
+    legend_position: center
+    limit: 30
+    limit_displayed_rows: true
+    limit_displayed_rows_values:
+      first_last: first
+      num_rows: "10"
+      show_hide: show
+    listen:
+      Time: rule_detections.event_timestamp_time
+    model: cn
+    name: Top 10 Rule Names by Detections
+    ordering: none
+    plot_size_by_field: false
+    point_style: none
+    query_timezone: America/Los_Angeles
+    row: 6
+    rows_font_size: "12"
+    show_null_labels: false
+    show_null_points: true
+    show_row_numbers: false
+    show_row_totals: true
+    show_silhouette: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_totals_labels: false
+    show_value_labels: false
+    show_view_names: false
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    size_to_fit: true
+    sorts:
+    - rule_detections.count_for_drill desc
+    stacking: ""
+    table_theme: white
+    title: Top 10 Rule Names by Detections
+    totals_color: '#808080'
+    transpose: false
+    trellis: ""
+    truncate_text: true
+    type: looker_grid
+    value_labels: legend
+    width: 11
+    x_axis_gridlines: false
+    x_axis_label: ""
+    x_axis_reversed: false
+    x_axis_scale: auto
+    y_axes:
+    - label: Rule Detection  Count
+      orientation: bottom
+      series:
+      - axisId: rule_detections.count_for_drill
+        id: rule_detections.count_for_drill
+        name: Rule Matches Data
+      showLabels: true
+      showValues: true
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+    y_axis_combined: true
+    y_axis_gridlines: true
+    y_axis_reversed: false
+    y_axis_scale_mode: linear
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+  - col: 11
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      options:
+        steps: 5
+      palette_id: de0bdb92-9455-489c-afa7-f0e0fdc76078
+    conditional_formatting_include_nulls: false
+    conditional_formatting_include_totals: false
+    defaults_version: 1
+    enable_conditional_formatting: false
+    explore: rule_detections
+    fields:
+    - rule_detections.count_for_drill
+    - rule_detections.rule_name
+    - rule_detections.event_timestamp_date
+    fill_fields:
+    - rule_detections.event_timestamp_date
+    header_font_size: 12
+    header_text_alignment: left
+    height: 6
+    hidden_fields: []
+    hide_row_totals: false
+    hide_totals: false
+    interpolation: linear
+    label_density: 25
+    label_type: labPer
+    legend_position: center
+    limit: 500
+    limit_displayed_rows: true
+    limit_displayed_rows_values:
+      first_last: first
+      num_rows: "10"
+      show_hide: show
+    listen:
+      Time: rule_detections.event_timestamp_time
+    model: cn
+    name: Rule Detections by Name Over Time
+    ordering: none
+    pivots:
+    - rule_detections.rule_name
+    plot_size_by_field: false
+    point_style: none
+    query_timezone: America/Los_Angeles
+    row: 6
+    rows_font_size: 12
+    show_null_labels: false
+    show_null_points: true
+    show_row_numbers: true
+    show_silhouette: false
+    show_totals_labels: false
+    show_value_labels: false
+    show_view_names: false
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    size_to_fit: true
+    sorts:
+    - rule_detections.count_for_drill desc 0
+    - rule_detections.rule_name desc
+    - rule_detections.event_timestamp_date desc
+    stacking: normal
+    table_theme: white
+    title: Rule Detections by Name Over Time
+    totals_color: '#808080'
+    transpose: false
+    trellis: ""
+    truncate_text: true
+    type: looker_column
+    value_labels: legend
+    width: 13
+    x_axis_gridlines: false
+    x_axis_label: Date
+    x_axis_reversed: false
+    x_axis_scale: auto
+    y_axes:
+    - label: Rule Detections
+      orientation: left
+      series:
+      - axisId: WojasonDailyDetectionQuotaDevTest - ru_95fe0f44-122c-459f-a51a-0c95cffd3f3b
+          - rule_detections.count_for_drill
+        id: WojasonDailyDetectionQuotaDevTest - ru_95fe0f44-122c-459f-a51a-0c95cffd3f3b
+          - rule_detections.count_for_drill
+        name: WojasonDailyDetectionQuotaDevTest
+      - axisId: testConsistentTimeRangeLiveWorksEnabled_SingleEvent - ru_caedfdcb-3312-4b7b-8567-848e1f1f9fba
+          - rule_detections.count_for_drill
+        id: testConsistentTimeRangeLiveWorksEnabled_SingleEvent - ru_caedfdcb-3312-4b7b-8567-848e1f1f9fba
+          - rule_detections.count_for_drill
+        name: testConsistentTimeRangeLiveWorksEnabled_SingleEvent
+      - axisId: testConsistentTimeRangeLiveWorksEnabled_MultiEvent - ru_ad2a5f8d-743e-4aef-a9a7-4cbd3f670f10
+          - rule_detections.count_for_drill
+        id: testConsistentTimeRangeLiveWorksEnabled_MultiEvent - ru_ad2a5f8d-743e-4aef-a9a7-4cbd3f670f10
+          - rule_detections.count_for_drill
+        name: testConsistentTimeRangeLiveWorksEnabled_MultiEvent
+      - axisId: RegexTargetHostname - ru_7d9ce84b-4319-45a9-bf40-08b6c32e0d4c - rule_detections.count_for_drill
+        id: RegexTargetHostname - ru_7d9ce84b-4319-45a9-bf40-08b6c32e0d4c - rule_detections.count_for_drill
+        name: RegexTargetHostname
+      - axisId: RegexTargetHostname - ru_7e0099b9-96b1-486d-8876-f78748fd6a1a - rule_detections.count_for_drill
+        id: RegexTargetHostname - ru_7e0099b9-96b1-486d-8876-f78748fd6a1a - rule_detections.count_for_drill
+        name: RegexTargetHostname
+      - axisId: RegexTargetHostname - ru_7f622f4c-b87d-4724-a7a0-0a265d0e71f9 - rule_detections.count_for_drill
+        id: RegexTargetHostname - ru_7f622f4c-b87d-4724-a7a0-0a265d0e71f9 - rule_detections.count_for_drill
+        name: RegexTargetHostname
+      - axisId: RegexTargetHostname - ru_93cdd742-aefc-4567-84b3-c0d18368d5ec - rule_detections.count_for_drill
+        id: RegexTargetHostname - ru_93cdd742-aefc-4567-84b3-c0d18368d5ec - rule_detections.count_for_drill
+        name: RegexTargetHostname
+      - axisId: RegexTargetHostname - ru_9edaec90-6c20-49b7-9659-c2eb5acb3ac1 - rule_detections.count_for_drill
+        id: RegexTargetHostname - ru_9edaec90-6c20-49b7-9659-c2eb5acb3ac1 - rule_detections.count_for_drill
+        name: RegexTargetHostname
+      - axisId: RegexTargetHostname - ru_ab812ad0-922a-44c8-b8c6-505ed51628ce - rule_detections.count_for_drill
+        id: RegexTargetHostname - ru_ab812ad0-922a-44c8-b8c6-505ed51628ce - rule_detections.count_for_drill
+        name: RegexTargetHostname
+      - axisId: LotsOfDNS - ru_ab337c04-7ebc-4bdc-b6df-3186e63b897d - rule_detections.count_for_drill
+        id: LotsOfDNS - ru_ab337c04-7ebc-4bdc-b6df-3186e63b897d - rule_detections.count_for_drill
+        name: LotsOfDNS
+      - axisId: google_not_google_com - ru_8e9e2d75-0a15-4d09-8d26-704039940d75 -
+          rule_detections.count_for_drill
+        id: google_not_google_com - ru_8e9e2d75-0a15-4d09-8d26-704039940d75 - rule_detections.count_for_drill
+        name: google_not_google_com
+      - axisId: abu_nx_domain - ru_972100f0-36f8-4d57-b88b-b980e2f48b41 - rule_detections.count_for_drill
+        id: abu_nx_domain - ru_972100f0-36f8-4d57-b88b-b980e2f48b41 - rule_detections.count_for_drill
+        name: abu_nx_domain
+      - axisId: abu_dns_not_google_not_ms - ru_2fc72958-b76e-4b84-9693-b51440a206ac
+          - rule_detections.count_for_drill
+        id: abu_dns_not_google_not_ms - ru_2fc72958-b76e-4b84-9693-b51440a206ac -
+          rule_detections.count_for_drill
+        name: abu_dns_not_google_not_ms
+      - axisId: abu_asset_aliasing - ru_e28942e2-2191-449e-831e-881975fa0e00 - rule_detections.count_for_drill
+        id: abu_asset_aliasing - ru_e28942e2-2191-449e-831e-881975fa0e00 - rule_detections.count_for_drill
+        name: abu_asset_aliasing
+      showLabels: true
+      showValues: true
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+    y_axis_combined: true
+    y_axis_gridlines: true
+    y_axis_reversed: false
+    y_axis_scale_mode: linear
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+  - col: 16
+    conditional_formatting_include_nulls: false
+    conditional_formatting_include_totals: false
+    defaults_version: 1
+    enable_conditional_formatting: false
+    explore: rule_detections
+    fields:
+    - rule_detections__detection__assets.asset_ip_address
+    - rule_detections.count
+    header_font_size: "12"
+    header_text_alignment: left
+    height: 6
+    hide_row_totals: false
+    hide_totals: false
+    label_density: 25
+    legend_position: center
+    limit: 30
+    limit_displayed_rows: true
+    limit_displayed_rows_values:
+      first_last: first
+      num_rows: "10"
+      show_hide: show
+    listen:
+      Time: rule_detections.event_timestamp_time
+    model: cn
+    name: Top 10  IPs by Rule Detections
+    ordering: none
+    plot_size_by_field: false
+    point_style: none
+    query_timezone: America/Los_Angeles
+    row: 12
+    rows_font_size: "12"
+    series_cell_visualizations:
+      rule_detections.count:
+        is_active: true
+    series_labels:
+      rule_detections.count: Rule Detections
+    show_null_labels: false
+    show_row_numbers: false
+    show_row_totals: true
+    show_silhouette: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_totals_labels: false
+    show_value_labels: false
+    show_view_names: false
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    size_to_fit: true
+    sorts:
+    - rule_detections.count desc
+    stacking: ""
+    table_theme: unstyled
+    title: Top 10  IPs by Rule Detections
+    totals_color: '#808080'
+    transpose: false
+    trellis: ""
+    truncate_text: true
+    type: looker_grid
+    width: 8
+    x_axis_gridlines: false
+    x_axis_label: ""
+    x_axis_reversed: false
+    x_axis_scale: auto
+    y_axes:
+    - label: Rule Detection  Count
+      orientation: bottom
+      series:
+      - axisId: rule_detections.count
+        id: rule_detections.count
+        name: Rule Matches Data
+      showLabels: true
+      showValues: true
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+    y_axis_combined: true
+    y_axis_gridlines: true
+    y_axis_reversed: false
+    y_axis_scale_mode: linear
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+  - col: 8
+    conditional_formatting_include_nulls: false
+    conditional_formatting_include_totals: false
+    defaults_version: 1
+    enable_conditional_formatting: false
+    explore: rule_detections
+    fields:
+    - rule_detections__detection__assets.hostname
+    - rule_detections.count
+    header_font_size: "12"
+    header_text_alignment: left
+    height: 6
+    hide_row_totals: false
+    hide_totals: false
+    interpolation: linear
+    label_density: 25
+    legend_position: center
+    limit: 30
+    limit_displayed_rows: true
+    limit_displayed_rows_values:
+      first_last: first
+      num_rows: "10"
+      show_hide: show
+    listen:
+      Time: rule_detections.event_timestamp_time
+    model: cn
+    name: Top 10 Asset Names by Rule Detections
+    ordering: none
+    plot_size_by_field: false
+    point_style: none
+    query_timezone: America/Los_Angeles
+    row: 12
+    rows_font_size: "12"
+    series_cell_visualizations:
+      rule_detections.count:
+        is_active: true
+    series_labels:
+      rule_detections.count: Rule Detections
+      rule_detections__detection__assets.hostname: Hostname
+    show_null_labels: false
+    show_null_points: true
+    show_row_numbers: false
+    show_row_totals: true
+    show_silhouette: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_totals_labels: false
+    show_value_labels: false
+    show_view_names: false
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    size_to_fit: true
+    sorts:
+    - rule_detections.count desc
+    stacking: ""
+    table_theme: unstyled
+    title: Top 10 Asset Names by Rule Detections
+    totals_color: '#808080'
+    transpose: false
+    trellis: ""
+    truncate_column_names: false
+    truncate_text: true
+    type: looker_grid
+    width: 8
+    x_axis_gridlines: false
+    x_axis_reversed: false
+    x_axis_scale: auto
+    y_axis_combined: true
+    y_axis_gridlines: true
+    y_axis_reversed: false
+    y_axis_scale_mode: linear
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+  - col: 0
+    conditional_formatting_include_nulls: false
+    conditional_formatting_include_totals: false
+    defaults_version: 1
+    enable_conditional_formatting: false
+    explore: rule_detections
+    fields:
+    - rule_detections__detection__users.user_name_with_link
+    - rule_detections.count
+    header_font_size: "12"
+    header_text_alignment: left
+    height: 6
+    hide_row_totals: false
+    hide_totals: false
+    limit: 30
+    limit_displayed_rows: true
+    limit_displayed_rows_values:
+      first_last: first
+      num_rows: "10"
+      show_hide: show
+    listen:
+      Time: rule_detections.event_timestamp_time
+    model: cn
+    name: Top 10 Users by Rule Detections
+    query_timezone: America/Los_Angeles
+    row: 12
+    rows_font_size: "12"
+    series_cell_visualizations:
+      rule_detections.count:
+        is_active: true
+    series_labels:
+      rule_detections.count: Rule Detections
+      rule_detections__detection__users.user_name: User Name
+    show_row_numbers: false
+    show_row_totals: true
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_view_names: false
+    size_to_fit: true
+    sorts:
+    - rule_detections.count desc
+    table_theme: unstyled
+    title: Top 10 Users by Rule Detections
+    transpose: false
+    truncate_text: true
+    type: looker_grid
+    width: 8
+  filters:
+  - allow_multiple_values: true
+    default_value: 7 days
+    explore: rule_detections
+    field: rule_detections.event_timestamp_time
+    listens_to_filters: []
+    model: cn
+    name: Time
+    required: true
+    title: Time
+    type: field_filter
+    ui_config:
+      display: popover
+      options: []
+      type: advanced
+  layout: newspaper
+  preferred_viewer: dashboards-next
+  title: Rule Detections
+metadata:
+  exported_at: "2024-01-25T20:39:36-08:00"
+  file_fingerprint: "18955084639045750016591572750096875977"
+  looker_version: 23.18.54
+  version: "1"
