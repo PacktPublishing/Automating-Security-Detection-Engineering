@@ -1,4 +1,3 @@
-#DE part of EDR CI init with GHEC use github.com/UKGEPIC/detection-engineering-edr
 name: Connect to an AWS role from a GitHub repository
 on:
   push:
